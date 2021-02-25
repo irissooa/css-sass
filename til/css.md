@@ -674,3 +674,325 @@ a[href$='.com'] {
 ## CSS variables
 
 > https://developer.mozilla.org/en-US/docs/Web/CSS/--*
+>
+> 자주반복되는 숫자나 용어들을 상수로 만드는 것이 좋다! -> 유지보수가 편하기 때문
+>
+> 변수로 만들어서 사용!`__원하는변수명`
+
+- 변수 사용전
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom properties</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/--* -->
+    <style>
+      .first-list {
+        background-color: thistle;
+        color: whitesmoke;
+        margin-left: 8px;
+      }
+
+      .second-list {
+        background-color: thistle;
+        color: whitesmoke;
+        margin-left: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="first-list">
+      <li>Orange</li>
+      <li>Apple</li>
+    </ul>
+    <ul class="second-list">
+      <li>Korea</li>
+      <li>Japan</li>
+      <li>China</li>
+    </ul>
+  </body>
+</html>
+```
+
+- 변수 사용 후
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom properties</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/--* -->
+    <style>
+      :root {
+        /* 변수를 만들때 '--'를 원하는 변수명 앞에 쓰면 됨! */
+        /* 정의된 변수는 모든 자식요소에서 접근이 가능함 */
+        /* 자식이 아닐경우 접근이 안됨 그래서 root에 쓰면 모두 접근 가능! */
+        --background-color: thistle;
+        --text-color: whitesmoke;
+        --base: 8px;
+      }
+      .first-list {
+        /* 정의한 변수를 'var(--변수명)'을 통해 가져옴! */
+        background-color: var(--background-color);
+        /* var에 정의된 값이 없다면 기본으로 쓸수있는 default값을 보내줄수있음 ',red' */
+        color: var(--text-color, red);
+        margin-left: var(--base);
+      }
+
+      .second-list {
+        background-color: var(--background-color);
+        color: var(--text-color, red);
+        /* calc() 계산을 해주는 함수! --base값을 읽어와서 2배로 곱한 값을 적용! */
+        margin-left: calc(var(--base) * 2);
+      }
+      /* 이렇게 하면 반응형에서 다르게 적용할 수 있음 */
+      @media screen and (max-width: 768px) {
+        :root {
+          --background-color: salmon;
+          --text-color: whitesmoke;
+          --base: 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="first-list">
+      <li>Orange</li>
+      <li>Apple</li>
+    </ul>
+    <ul class="second-list">
+      <li>Korea</li>
+      <li>Japan</li>
+      <li>China</li>
+    </ul>
+  </body>
+</html>
+
+```
+
+
+
+## data attribute
+
+> https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes
+>
+> `HTML5`에서 추가됨 html태그 자체에서 제공하는 속성뿐만 아니라 HTML요소에 추가할수 있다
+>
+> 우리가 원하는 정보를 요소에 추가하고 싶을 때 쓸 수 있음
+>
+> **`data-원하는값` 쓰면됨**
+>
+> 하지만 사용자에게 민감한 요소는 이렇게 dom요소에 추가하면 안됨! 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Attributes</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes -->
+    <style>
+      div {
+        width: 200px;
+        height: 200px;
+        background-color: tomato;
+        margin-bottom: 50px;
+      }
+      /* 속성선택자 [] */
+      /* [data]속성값을 이용해 css적용 */
+      div[data-display-name='dream'] {
+        background-color: beige;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 우리만의 data를 추가하고싶으면 data-*(원하는값)을 적으면 css나 js에서 읽어올 수 있음! -->
+    <div data-index="1" data-display-name="dream"></div>
+    <div data-index="2" data-display-name="coding"></div>
+    <span data-index="1" data-display-name="dream">sdfsdf</span>
+    <script>
+      // js에서도 선택자를 읽어올 수 있다
+      const dream = document.querySelector('div[data-display-name="dream"]');
+      // dataset을 출력하면 위에서 추가된 data-다음에 정의한 속성값으로 추가돼있음! 
+      console.log(dream.dataset);
+      // data-display-name은  camelCase로 {displayName : "dream"}으로 DOMStringMap안에 {Key:value}로 저장됨
+      console.log(dream.dataset.displayName);
+      console.log(dream.dataset.index);
+    </script>
+  </body>
+</html>
+
+```
+
+
+
+## IntersectionObserver
+
+> **IntersectionObserver** MDN: https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 80px auto;
+        background-color: plum;
+        transition: 250ms;
+      }
+
+      .box.active {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+    <div class="box">11</div>
+    <div class="box">12</div>
+    <div class="box">13</div>
+    <div class="box">14</div>
+    <div class="box">15</div>
+    <div class="box">16</div>
+    <div class="box">17</div>
+    <div class="box">18</div>
+    <div class="box">19</div>
+    <div class="box">20</div>
+
+    <script>
+      const boxes = document.querySelectorAll('.box');
+      const options = {
+        root:null, // viewport(우리가 보는 윈도우 부분을 말함)
+        // 정해진 부모 컨테이너 이후부터 무언가를 미리 준비해놓겠다(사용자에게 보여지진 않지만 근접해있는 경우 내가 이미지를 먼저 로딩, 필요한 컨텐츠를 준비해놓겠다 할때 사용)
+        rootMargin: '0px', //default값 (위 오 아 왼)
+        // 얼마만큼 보여져야 콜백함수가 호출될지 결정함
+        // 만약에 0.2로 설정하면 들어갈때 20%가 들어가야 보여지고, 나갈땐 80%가 나가야 없어짐(이렇게 반대로 작용함!)
+        threshold:0, // 0~1(100%)
+      }
+      const observer = new IntersectionObserver((entries,observer)=>{
+        entries.forEach(entry => {
+          // 들어갈때(해당 target이 브라우저로 들어올때 true)
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          } else {
+            entry.target.classList.remove('active');
+          }
+        });
+      },options);
+      boxes.forEach(box => observer.observe(box));
+    </script>
+  </body>
+</html>
+
+```
+
+- 컨테이너 안 버전, 컨테이너는 자체에 스크롤링을 가지고 있음
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 600px;
+        height: 800px;
+        margin: 200px;
+        overflow-y: scroll;
+        background-color: lightyellow;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 80px auto;
+        background-color: plum;
+        transition: 350ms;
+      }
+
+      .box.active {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+    </div>
+
+      <script>
+        const boxes = document.querySelectorAll('.box');
+        const options = {
+          root: null, // viewport(우리가 보는 윈도우 부분을 말함)
+          // 정해진 부모 컨테이너 이후부터 무언가를 미리 준비해놓겠다(사용자에게 보여지진 않지만 근접해있는 경우 내가 이미지를 먼저 로딩, 필요한 컨텐츠를 준비해놓겠다 할때 사용)
+          rootMargin: '0px', //default값 (위 오 아 왼)
+          // 얼마만큼 보여져야 콜백함수가 호출될지 결정함
+          // 만약에 0.2로 설정하면 들어갈때 20%가 들어가야 보여지고, 나갈땐 80%가 나가야 없어짐(이렇게 반대로 작용함!)
+          threshold: 0, // 0~1(100%)
+        }
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            // 들어갈때(해당 target이 브라우저로 들어올때 true)
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+            } else {
+              entry.target.classList.remove('active');
+            }
+          });
+        }, options);
+        boxes.forEach(box => observer.observe(box));
+      </script>
+  </body>
+</html>
+
+```
+
