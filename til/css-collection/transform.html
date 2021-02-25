@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/transform -->
+    <style>
+      .box {
+        width: 100px;
+        height: 120px;
+        background-color: brown;
+        margin-bottom: 20px;
+      }
+      /* X축은 오른쪽으로 갈수록 커지고 */
+      /* Y축은 아래로 내려갈수록 커짐 */
+      .box1 {
+        /* X축에서 100px이동 */
+        transform: translateX(100px);
+      }
+
+      .box2 {
+        /* X축, Y축 이동 */
+        transform: translate(-50px, -20px);
+      }
+
+      .box3 {
+        /* 커짐 1.2배 */
+        transform: scale(1.2);
+      }
+
+      .box4 {
+        /* 돌림 */
+        transform: rotate(45deg);
+      }
+
+      .box5 {
+        /* 한번에 옮기고, 애니메이션도 줄수있음 */
+        transform: translate(100px, 100px) scale(2) rotate(46deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+    <div class="box box4"></div>
+    <div class="box box5"></div>
+  </body>
+</html>

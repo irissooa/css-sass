@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/position-->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_Block -->
+    <style>
+      .container {
+        position: relative;
+        top: 100px;
+        left: 100px;
+        background-color: beige;
+      }
+
+      .box {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 20px;
+        background-color: chocolate;
+      }
+
+      .box2 {
+        background-color: hotpink;
+        /* 기존의 자리를 유지하다가 스크롤됐을떄 자기 위치를 그대로 유지하고있고, 공간도 그대로 유지하고있다 그래서 다른 요소들도 그 자리에 그대로 있다 */
+        /* sticky는 top과 left,를 지정해줘야됨 */
+        position: sticky;
+        top: 20px;
+        left: 20px;
+      }
+
+      .box3 {
+        background-color: blue;
+        /* 들어있는 부모와 상관없이 뷰포트 안에서 포지션이 일어나기 때문에 문서에서 빠져나와 0,0이 지정되는걸 볼 수 있다 */
+        position: fixed;
+        top: 20px;
+        left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box box1"></div>
+      <div class="box box2"></div>
+      <div class="box box3"></div>
+      <div class="box box4"></div>
+      <div class="box box5"></div>
+      <div class="box box6"></div>
+      <div class="box box7"></div>
+      <div class="box box8"></div>
+      <div class="box box9"></div>
+      <div class="box box10"></div>
+    </div>
+  </body>
+</html>
