@@ -90,6 +90,7 @@
 .friend-item {
 	align-items: center;
 }
+/* 이 세가지 속성을 쓰면 길어졌을 때 말줄임표가 생김 */
 .user-name {
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -98,6 +99,7 @@
 
 /* modal */
 .modal {
+	/* 가운데 위치시킴 */
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -118,43 +120,51 @@
 /* card list */
 .card-item {
 	display: flex;
+	/* flex grow가 높이로 늘어나려면 column으로 설정해야됨 */
 	flex-direction: column;
 	margin-bottom: 2rem;
 }
 .card-image {
 	height: 0;
-	padding-bottom: 60%;
+	padding-bottom: 60%; /* height를 주는것이 아니라 패딩을 60%로 줘서 가로가 100이라면 높이는 60%가 돼서 backgroud-img의 크기를 확보해줌, 가로 세로 비율이 유지됨 */
 	background-color: lightgray;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: cover;
+	background-size: cover; /* 컨테이너에 꽉 맞게 됨 */
 }
 .card-image img {
-	display: none;
+	display: none; /* figure 태그의 backgroud 이미지로 주기 위해 img는 안보이게 함 */
 }
 .card-desc {
+	/* flex-grow 1 flex-shrink 1 flex-basis auto
+	컨텐츠 길이가 얼마든 알아서 늘어나게(flex-grow) auto로 주면 desc 길이에 맞게 전체적으로 크기가 맞게 늘어남 */
 	flex: 1 1 auto;
 	padding: 1em;
 	background: white;
 }
-
+/* 600px 이상일때 */
 @media (min-width: 600px) {
 	.card-list-con {
 		overflow-x: hidden;
 	}
 	.card-list {
 		display: flex;
+		/* 절반 차지하고, 넘치면 아래로 떨어지게 만듦 */
 		flex-wrap: wrap;
+		/* 패딩을 1rem준만큼 -1rem 주면 여백없이 꽉 차게됨 */
 		margin: 0 -1rem;
 	}
 	.card-item {
+		/* 두개씩 하게하려면 절반을 차지하게함 */
 		width: 50%;
+		/* 좌우에 패딩을 줌 */
 		padding: 0 1rem;
 	}
 }
-
+/* 1200px이상 */
 @media (min-width: 1200px) {
 	.card-item {
+		/* 3개씩 위치하게 함 */
 		width: 33.33333%;
 	}
 }

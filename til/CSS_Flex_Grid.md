@@ -1,10 +1,8 @@
 # CSS_Flex_Grid
 
-> flex와 grid는 `Firefox`로 공부하는게 좋다. 
+>  **크롬 개발자 도구에 아래 기능 사용**
 >
-> ![image-20210610220318503](CSS_Flex_Grid.assets/image-20210610220318503.png)
->
-> 왜냐하면 위 사진처럼 개발자도구에 flex와 grid를 설정할 때 보라색으로 보여준다.
+> ![image-20210614222919460](CSS_Flex_Grid.assets/image-20210614222919460.png)
 
 [toc]
 
@@ -929,3 +927,1310 @@ z-index로 Z축 정렬을 할 수 있다. 숫자가 클 수록 위로 올라온�
 }
 ```
 
+
+
+### Flex UI 유저리스트
+
+> ![image-20210614194340153](CSS_Flex_Grid.assets/image-20210614194340153.png)
+
+- `user.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+	<ul class="user-list friend-list">
+		<li class="user-item friend-item">
+			<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+			<p class="user-name">
+				일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+			</p>
+		</li>
+		<li class="user-item friend-item">
+			<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+			<p class="user-name">
+				일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+			</p>
+		</li>
+		<li class="user-item friend-item">
+			<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+			<p class="user-name">
+				일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+			</p>
+		</li>
+	</ul>
+</body>
+</html>
+```
+
+- `ui.css`
+
+```css
+/* friend list */
+.friend-item {
+	align-items: center;
+}
+/* 이 세가지 속성을 쓰면 길어졌을 때 말줄임표가 생김 */
+.user-name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+```
+
+
+### Flex UI 모달
+
+> ![image-20210614195526298](CSS_Flex_Grid.assets/image-20210614195526298.png)
+
+- `modal.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+	<div class="modal">
+		<div class="dialog">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque exercitationem odio, modi laboriosam a perspiciatis est delectus quisquam obcaecati vel eos natus ipsam quasi reprehenderit nihil eligendi quam aliquid! Totam vitae quis, obcaecati quos, ut aut eveniet architecto sed harum ea deleniti itaque saepe unde nulla?
+		</div>
+	</div>
+</body>
+</html>
+```
+
+- `ui.css`
+
+```css
+/* modal */
+.modal {
+	/* 가운데 위치시킴 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.3);
+}
+.dialog {
+	width: 50vw;
+	padding: 2em;
+	border-radius: 1em;
+	background: white;
+}
+```
+
+
+
+### Flex UI 카드리스트
+
+> **카드 리스트의 이미지는 일반적으로 DB에 있는 이미지를 불러오기 때문에 인라인 CSS로 넣는 것이 합리적**
+>
+> ![image-20210614195817600](CSS_Flex_Grid.assets/image-20210614195817600.png)
+>
+> ![image-20210614195831653](CSS_Flex_Grid.assets/image-20210614195831653.png)
+>
+> ![image-20210614195840712](CSS_Flex_Grid.assets/image-20210614195840712.png)
+
+- `card-list.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+	<div class="card-list-con">
+    	<ul class="card-list">
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, perferendis? dolor sit, amet consectetur adipisicing elit. Hic, perferendis?
+    			</div>
+    		</li>
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum.
+    			</div>
+    		</li>
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim impedit odio expedita pariatur architecto molestias recusandae quam distinctio! Nemo sapiente laborum fugit adipisci reiciendis eos in eveniet dicta iure unde vel beatae nihil sit necessitatibus similique perspiciatis saepe aperiam, expedita laudantium consequatur? Blanditiis, rem exercitationem. Exercitationem odio aliquam distinctio unde?
+    			</div>
+    		</li>
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, perferendis?
+    			</div>
+    		</li>
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, perferendis?
+    			</div>
+    		</li>
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, perferendis?
+    			</div>
+    		</li>
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, perferendis?
+    			</div>
+    		</li>
+    		<li class="card-item">
+    			<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+    				<img src="images/ilbuni.png" alt="일분이">
+    			</figure>
+    			<div class="card-desc">
+    				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, perferendis?
+    			</div>
+    		</li>
+    	</ul>
+	</div>
+</body>
+</html>
+
+```
+
+- `ui.css`
+
+```css
+/* card list */
+.card-item {
+	display: flex;
+	/* flex grow가 높이로 늘어나려면 column으로 설정해야됨 */
+	flex-direction: column;
+	margin-bottom: 2rem;
+}
+.card-image {
+	height: 0;
+	padding-bottom: 60%; /* height를 주는것이 아니라 패딩을 60%로 줘서 가로가 100이라면 높이는 60%가 돼서 backgroud-img의 크기를 확보해줌, 가로 세로 비율이 유지됨 */
+	background-color: lightgray;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover; /* 컨테이너에 꽉 맞게 됨 */
+}
+.card-image img {
+	display: none; /* figure 태그의 backgroud 이미지로 주기 위해 img는 안보이게 함 */
+}
+.card-desc {
+	/* flex-grow 1 flex-shrink 1 flex-basis auto
+	컨텐츠 길이가 얼마든 알아서 늘어나게(flex-grow) auto로 주면 desc 길이에 맞게 전체적으로 크기가 맞게 늘어남 */
+	flex: 1 1 auto;
+	padding: 1em;
+	background: white;
+}
+/* 600px 이상일때 */
+@media (min-width: 600px) {
+	.card-list-con {
+		overflow-x: hidden;
+	}
+	.card-list {
+		display: flex;
+		/* 절반 차지하고, 넘치면 아래로 떨어지게 만듦 */
+		flex-wrap: wrap;
+		/* 패딩을 1rem준만큼 -1rem 주면 여백없이 꽉 차게됨 */
+		margin: 0 -1rem;
+	}
+	.card-item {
+		/* 두개씩 하게하려면 절반을 차지하게함 */
+		width: 50%;
+		/* 좌우에 패딩을 줌 */
+		padding: 0 1rem;
+	}
+}
+/* 1200px이상 */
+@media (min-width: 1200px) {
+	.card-item {
+		/* 3개씩 위치하게 함 */
+		width: 33.33333%;
+	}
+}
+```
+
+### Flex UI 반응형페이지
+
+> 골격을 나눔
+>
+> ![image-20210614214624614](CSS_Flex_Grid.assets/image-20210614214624614.png)
+>
+> ![image-20210614214356263](CSS_Flex_Grid.assets/image-20210614214356263.png)
+>
+> ![image-20210614214412685](CSS_Flex_Grid.assets/image-20210614214412685.png)
+>
+> ![image-20210614214429253](CSS_Flex_Grid.assets/image-20210614214429253.png)
+>
+> ![image-20210614214440850](CSS_Flex_Grid.assets/image-20210614214440850.png)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+	<link rel="stylesheet" href="ui-page.css">
+</head>
+<body>
+	<div class="page">
+		<!-- header -->
+		<header class="header">
+			<h1 class="website-title">1분코딩</h1>
+			<form class="search-form">
+				<input type="search">
+				<input type="submit" value="찾기">
+			</form>
+			<!-- <div id="modal-switch">⚑</div> -->
+		</header>
+
+		<!-- menu -->
+		<ul class="menu">
+			<li class="menu-item">
+				<a href="#" class="menu-link">Home</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">About</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Product</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Contact</a>
+			</li>
+		</ul>
+
+		<!-- <div class="content-container"> -->
+		<!-- primary -->
+		<section class="primary">
+			<ul class="card-list">
+				<li class="card-item">
+					<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+						<img src="images/ilbuni.png" alt="일분이">
+					</figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum.
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<!-- secondary-a -->
+		<aside class="secondary secondary-a">
+			<ul class="info-list">
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugit numquam aspernatur excepturi, eos soluta praesentium maiores commodi minus accusantium?
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam tempora nisi unde corrupti dicta.
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur alias, ducimus ea magnam nostrum repudiandae repellendus deleniti veniam? Assumenda expedita ad eum nihil!
+				</li>
+			</ul>
+
+			<ul class="user-list friend-list">
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+			</ul>
+		</aside>
+
+		<!-- secondary-b -->
+		<aside class="secondary secondary-b">
+			<ul class="user-list message-list">
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione. Dicta, beatae, aspernatur, sit commodi quis illo non aut repellendus veritatis at ab.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id.
+					</p>
+				</li>
+			</ul>
+		</aside>
+		<!-- </div> -->
+
+		<!-- footer -->
+		<footer class="footer">
+			Lorem ipsum dolor sit amet.
+		</footer>
+	</div>
+
+	<input type="checkbox" id="modal-switch">
+	<label for="modal-switch">
+		<span>modal 열고 닫기</span>
+	</label>
+	
+	<div class="modal">
+		<div class="dialog">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque exercitationem odio, modi laboriosam a perspiciatis est delectus quisquam obcaecati vel eos natus ipsam quasi reprehenderit nihil eligendi quam aliquid! Totam vitae quis, obcaecati quos, ut aut eveniet architecto sed harum ea deleniti itaque saepe unde nulla?
+		</div>
+	</div>
+</body>
+</html>
+```
+
+- `ui-page.css`
+
+```css
+.header	{
+	display: flex;
+	align-items: center;
+	/* justify-content: space-between; */
+	height: 80px;
+	padding: 0 1rem;
+}
+/* search-form 크기에 맞게 search의 input의 크기가 바뀜 */
+.search-form {
+	width: 300px;
+	/* 크기를 제한시킴 */
+	max-width: 60%;
+/* .header에 justify-content: space-between; 대신 사용 가능 */
+/* 왼쪽을 다 씀 */
+	margin-left: auto;
+	/* 깃발모양이 들어올 것이기 때문에 공간을 줌 */
+	margin-right: 3rem;
+}
+.primary {
+	/* 헤더랑 맞춰서 1rem으로 해줌 */
+	padding: 1rem;
+}
+.secondary {
+	/* 헤더랑 맞춰서 1rem으로 해줌 */
+	padding: 1rem;
+}
+.secondary-a {
+	background: white;
+}
+.secondary-b {
+	color: white;
+	background: #666;
+}
+.footer {
+	/* 헤더랑 맞춰서 1rem으로 해줌 */
+	padding: 1rem;
+	border-top: 1px solid lightgray;
+	text-align: center;
+}
+/* modal 클릭 했을 때만 보이게 CSS로 처리 */
+.modal {
+	display: none;
+	/* 모달이 헤더를 가리지 않게 위치를 맞게 해줌 */
+	top: 80px;
+}
+/* 
+"~" : modal-switch input이 체크된 상태에 다음에 나오는 형제(같은 레벨)의 밑에 있는 클래스가 modal인 것 모두 적용됨
+
+"+" : 체크된 상태의 같은레벨의 바로 아래 클래스가 modal인 것 1개만 적용
+*/
+#modal-switch:checked ~ .modal {
+	display: flex;
+}
+/* label의 for이 "modal-switch"인 것 */
+/* 깃발모양을 위로 올리기 위해 absolute */
+label[for="modal-switch"] {
+	/* 버튼이니 inline-flex로 하면 더 일반적이다. */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 1.3rem;
+	right: 1rem;
+	/* z-index: 100; */
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	/* background: red; */
+}
+/* label의 for이 "modal-switch"인 것 가상 엘리먼트 */
+label[for="modal-switch"]:before {
+	content: "⚑";
+	font-size: 2rem;
+	cursor: pointer;
+}
+/* 깃발이 체크 됐을 때 색으로 바꿔줌 */
+#modal-switch:checked ~ label[for="modal-switch"]:before {
+	color: dodgerblue;
+}
+#modal-switch,
+label[for="modal-switch"] span {
+	/* 스크린리더, SEO등의 이유로 display:none;이나 width:0;등의 사용을 피함 */
+	overflow: hidden;
+	position: absolute;
+	top: 0; /* 크롬에서는 모달이 하단에 위치하는 문제가 있어서 적어줘야됨! */
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+/* 반응형 */
+/* 최소 폭이 1024(ipad) */
+@media (min-width: 1024px) {
+	.page {
+		display: flex;
+		/* flex item이 컨테이너를 벗어나면 아래로 떨어짐 */
+		flex-wrap: wrap;
+	}
+	.header {
+		/* 한줄을 차지해야됨 */
+		width: 100%;
+	}
+	.menu {
+		/* 한줄을 차지해야됨 */
+		width: 100%;
+	}
+	/* flex-grow보다 width를 사용하는게 더 정확	*/
+	/* 양옆이 20%씩 2개라 primary는 60% */
+	.primary {
+		/* order가 작은게 더 먼저옴 */
+		order: 2;
+		width: 60%;
+	}
+	/* 양옆을 각각 20%로 해줌 */
+	.secondary {
+		width: 20%;
+	}
+	.secondary-a {
+		order: 1;
+	}
+	.secondary-b {
+		order: 3;
+	}
+	.footer {
+		/* 헤더나 menu는 어차피 앞에 있는 것들이라 따로 order를 안줘도 되고, footer도 flex-item이기 떄문에 order를 위에는 다 줬는데 이건 안주면 order:0;이기 때문에 가장 크게 order를 줘야 제일 뒷순서가 된다. */
+		order: 4;
+		/* 한줄을 차지해야됨 */
+		width: 100%;
+	}
+}
+
+@media (min-width: 1400px) {
+	.primary {
+		/* 양쪽 600px이니까 전체에서 600px만큼 빼줌 "꼭 띄어쓰기를 해야 적용된다" */
+		/* 1번 방법 */
+		width: calc(100% - 600px);
+		/* width말고도 아래의 방법도 있다. 근데 width를 쓴것 보다 확실하게 적용되지 않는다. 칼럼은 보통 픽스된 정해진 레이아웃이 있으면 width를 쓰는 것이 더 안전하다 */
+		/* 2번 방법 */
+		/* flex-grow: 1; */
+		/* flex: 1 1 auto; */
+		/* flex: auto; */
+	}
+	/* 일정 크기가 지나면 300px로 고정 */
+	.secondary {
+		width: 300px;
+	}
+}
+```
+
+
+
+## Grid
+
+> [CSS Grid](https://studiomeal.com/archives/533)
+>
+> **Flex보다 더 복합적인 레이아웃 표현이 가능**
+>
+> ![image-20210614222741674](CSS_Flex_Grid.assets/image-20210614222741674.png)
+
+Grid 레이아웃을 만들기 위한 기본적인 HTML 구조는 다음과 같다.
+Flex와 마찬가지로, 컨테이너와 아이템이 있으면 된다.
+
+```html
+<div class="container">
+	<div class="item">A</div>
+	<div class="item">B</div>
+	<div class="item">C</div>
+	<div class="item">D</div>
+	<div class="item">E</div>
+	<div class="item">F</div>
+	<div class="item">G</div>
+	<div class="item">H</div>
+	<div class="item">I</div>
+</div>
+```
+
+부모 요소인 div.container를 **Grid Container(그리드 컨테이너)**라고 부르고,
+자식 요소인 div.item들을 **Grid Item(그리드 아이템)**이라고 부른다.
+“컨테이너가 Grid의 영향을 받는 전체 공간이고, 설정된 속성에 따라 각각의 아이템들이 어떤 형태로 배치되는 것”
+
+Flex와 마찬가지로, Grid는 컨테이너에 display: grid; 를 설정하는 것으로 시작
+
+```css
+.container {
+	display: grid;
+}
+```
+
+### Grid 용어
+
+![image-20210614223220657](CSS_Flex_Grid.assets/image-20210614223220657.png)
+
+- **그리드 컨테이너 (Grid Container)**
+  	- `display: grid`를 적용하는, Grid의 전체 영역
+  - Grid 컨테이너 안의 요소들이 Grid 규칙의 영향을 받아 정렬됨
+  - 위 코드 `<div class="container"></div>`가 Grid 컨테이너.
+- **그리드 아이템 (Grid** **Item)**
+  - Grid 컨테이너의 자식 요소들
+  - 바로 이 아이템들이 Grid 규칙에 의해 배치됨
+  - 위 코드에서 `<div class="item"></div>`들이 Grid 아이템
+- **그리드 트랙 (Grid Track)**
+  - Grid의 행(Row) 또는 열(Column)
+- **그리드 셀 (Grid Cell)**
+  - Grid의 한 칸을 가리키는 말.
+  - ` <div>`같은 실제 html 요소는 그리드 아이템이고, 이런 Grid 아이템 하나가 들어가는 “가상의 칸(틀)”.
+- **그리드 라인(Grid Line)**
+  - Grid 셀을 구분하는 선
+- **그리드 번호(Grid Number)**
+  - Grid 라인의 각 번호
+- **그리드 갭(Grid Gap)**
+  - Grid 셀 사이의 간격
+- **그리드 영역(Grid Area)**
+  - Grid 라인으로 둘러싸인 사각형 영역으로, 그리드 셀의 집합
+
+Grid의 속성들은 Flex와 마찬가지로,
+
+- 컨테이너에 적용하는 속성
+- 아이템에 적용하는 속성
+
+이렇게 두 가지로 나뉨
+
+![image-20210614223241490](CSS_Flex_Grid.assets/image-20210614223241490.png)
+
+### display: grid;
+
+Grid 컨테이너에 display: grid;를 적용하는게 시작
+아이템들이 block 요소라면 이 한 줄 만으로는 딱히 변화는 없다.
+
+```css
+.container {
+	display: grid;
+	/* display: inline-grid; */
+}
+/* 그리고 아무 일도 일어나지 않았다 */
+```
+
+**inline-grid**도 있는데, 이건 block과 inline-block의 관계를 생각하면 된다.
+아이템의 배치와 관련이 있다기 보다는, 컨테이너가 주변 요소들과 어떻게 어우러질지 결정하는 값 inline-grid는 inline-block처럼 동작
+
+### 그리드 형태 정의 
+
+### `grid-template-rows` 
+
+### `grid-template-columns`
+
+### `-ms-grid-rows`
+
+### `-ms-grid-columns`
+
+컨테이너에 Grid 트랙의 크기들을 지정해주는 속성
+여러가지 단위를 사용할 수 있고 섞어서 쓸 수도 있다.
+
+```css
+.container {
+	grid-template-columns: 200px 200px 500px;
+	/* grid-template-columns: 1fr 1fr 1fr */
+	/* grid-template-columns: repeat(3, 1fr) */
+	/* grid-template-columns: 200px 1fr */
+	/* grid-template-columns: 100px 200px auto */
+
+	grid-template-rows: 200px 200px 500px;
+	/* grid-template-rows: 1fr 1fr 1fr */
+	/* grid-template-rows: repeat(3, 1fr) */
+	/* grid-template-rows: 200px 1fr */
+	/* grid-template-rows: 100px 200px auto */
+}
+```
+
+- grid-template-rows는 행(row)의 배치
+- grid-template-columns는 열(column)의 배치
+
+를 결정.
+예를 들어
+
+```css
+grid-template-columns: 200px 200px 500px;
+```
+
+는 column을 200px, 200px, 500px로 만들겠다는 의미.
+
+```css
+grid-template-columns: 1fr 1fr 1fr;
+```
+
+**fr**은 *fraction*([뜻은 여기로](https://dic.daum.net/word/view.do?wordid=ekw000066112&q=fraction))이다, 숫자 비율대로 트랙의 크기를 나뉸다.
+즉 위의 `1fr 1fr 1fr`은 균일하게 `1:1:1` 비율인 3개의 column을 만들겠다는 의미
+
+![image-20210614223306888](CSS_Flex_Grid.assets/image-20210614223306888.png)
+
+고정 크기와 가변 크기를 섞어 쓸 수도 있다.
+아래처럼 하면 왼쪽의 첫번째 column은 100px로 고정되고, 나머지 두번째 세번째 column은 `2:1`의 비율로 유연하게 움직이게 된다.
+
+```
+grid-template-columns: 100px 2fr 1fr;
+```
+
+![image-20210614223321447](CSS_Flex_Grid.assets/image-20210614223321447.png)
+
+![image-20210614223330088](CSS_Flex_Grid.assets/image-20210614223330088.png)
+
+![image-20210614223343425](CSS_Flex_Grid.assets/image-20210614223343425.png)
+
+![image-20210614223352650](CSS_Flex_Grid.assets/image-20210614223352650.png)
+
+![image-20210614223358804](CSS_Flex_Grid.assets/image-20210614223358804.png)
+
+![image-20210614223408914](CSS_Flex_Grid.assets/image-20210614223408914.png)
+
+![image-20210614223418727](CSS_Flex_Grid.assets/image-20210614223418727.png)
+
+#### repeat 함수
+
+>repeat는 반복되는 값을 자동으로 처리할 수 있는 함수
+
+```css
+.container {
+	grid-template-columns: repeat(5, 1fr);
+	/* grid-template-columns: 1fr 1fr 1fr 1fr 1fr */
+}
+```
+
+**repeat(반복횟수, 반복값)**
+즉, 위 코드의 **repeat(5, 1fr)**은 **1fr 1fr 1fr 1fr 1fr**과 같다.
+`repeat(3, 1fr 4fr 2fr);` 이런 식의 패턴도 가능하다.
+
+#### minmax 함수
+
+> 최솟값과 최댓값을 지정할 수 있는 함수
+
+**minmax(100px, auto)**의 의미는 **최소한 100px**, **최대는 자동으로(auto) 늘어난다**
+
+ 즉 아무리 내용의 양이 적더라도 최소한 높이 100px은 확보하고, 내용이 많아 100px이 넘어가면 알아서 늘어나도록 처리해 준 예시다.
+
+```css
+.container {
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, minmax(100px, auto));
+}
+```
+
+![image-20210614223445541](CSS_Flex_Grid.assets/image-20210614223445541.png)
+
+![image-20210614223458030](CSS_Flex_Grid.assets/image-20210614223458030.png)
+
+#### auto-fill과 auto-fit
+
+> auto-fill과 auto-fit은 column의 개수를 미리 정하지 않고 설정된 너비가 허용하는 한 최대한 셀을 채운다.
+
+##### auto-fill
+
+```css
+.container {
+	grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+}
+```
+
+auto-fill의 크기를 20%로 설정했으므로, 1개의 row에는 5개의 셀이 들어간다.
+
+![image-20210614223515451](CSS_Flex_Grid.assets/image-20210614223515451.png)
+셀의 개수가 5개보다 모자라면, 이런↓ 식으로 공간이 남게 되고,
+
+![image-20210614223530325](CSS_Flex_Grid.assets/image-20210614223530325.png)
+
+##### auto-fit
+
+auto-fill 대신 **auto-fit**을 사용하면, 남는 공간을 채운다.
+바로 이게↓ auto-fill과 auto-fit의 차이다.
+
+![image-20210614223544862](CSS_Flex_Grid.assets/image-20210614223544862.png)
+
+### 간격 만들기 `row-gap` ,`column-gap` ,`gap`
+
+그리드 셀 사이의 간격을 설정한다.
+
+```css
+.container {
+	row-gap: 10px;
+	/* row의 간격을 10px로 */
+	column-gap: 20px;
+	/* column의 간격을 20px로 */
+}
+.container {
+	gap: 10px 20px;
+	/* row-gap: 10px; column-gap: 20px; */
+}
+.container {
+	gap: 20px;cssc
+	/* row-gap: 20px; column-gap: 20px; */
+}
+```
+
+![image-20210614223609811](CSS_Flex_Grid.assets/image-20210614223609811.png)
+
+![image-20210614223619433](CSS_Flex_Grid.assets/image-20210614223619433.png)
+
+![image-20210614223627938](CSS_Flex_Grid.assets/image-20210614223627938.png)
+
+초기에는 앞에 `gird-`를 붙여서 `grid-gap`, `grid-row-gap`, `grid-column-gap`이었는데, 브라우저 호환 범위를 넓히기 위해 아래처럼 이전 버전의 이름과 현재 버전의 이름을 둘 다 쓰기도 한다.
+
+```css
+.container {
+	grid-gap: 20px;
+	gap: 20px;
+}
+```
+
+> IE에서는 gap의 대체 속성이 없기 때문에, IE와 구조를 통일하고 싶으면 아예 처음부터 gap을 사용하지 않고 구조를 설계하는게 편하다.
+
+### 그리드 형태를 자동으로 정의 `grid-auto-columns`, `grid-auto-rows`
+
+`grid-template-columns`(또는` grid-template-rows`)의 통제를 벗어난 위치에 있는 트랙의 크기를 지정하는 속성이다.
+속성 이름이 헷갈린다면 `-template- `자리에 `– auto-`가 들어간다고 생각해라.
+
+“통제를 벗어난”은??
+
+```css
+.container {
+	grid-template-rows: repeat(3, minmax(100px, auto));
+}
+```
+
+각 셀마다 최소 100px의 높이를 확보하고, 컨텐츠가 높이 100px을 넘어가면 알아서 자동으로 늘어나도록(auto) 하려고 저 코드를 썼는데, 우리가 만든 예시가 row가 3개였기 때문에 repeat 회수를 3으로 지정해 줬다
+
+그런데 row 개수를 미리 알 수 없는 경우면 어떻게? 바로 이 `grid-auto-rows`가 그 해결책이다.
+
+```css
+.container {
+	grid-auto-rows: minmax(100px, auto);
+}
+```
+
+![image-20210614223710496](CSS_Flex_Grid.assets/image-20210614223710496.png)
+
+![image-20210614223719281](CSS_Flex_Grid.assets/image-20210614223719281.png)
+
+이렇게 `grid-auto-rows`를 써주면, 굳이 횟수를 지정해서 반복할 필요 없이 “**알아서**” 처리됩니다. 즉, `grid-template-rows`로 미리 세팅해 둔 것이 없이 때문에 여기있는 모든 row들은 `grid-template-rows`의 통제를 벗어난 row가 되는 것이고, 바로 `grid-auto-rows`가 처리를 한다! “**통제를 벗어난**”의 의미는 바로 이거다.
+
+### 각 셀의 영역 지정 `grid-column-start`, `grid-column-end` ,`grid-column`, `grid-row-start`, `grid-row-end` 
+
+>  `grid-row`
+>
+> `-ms-grid-row`
+>
+> `-ms-grid-column`
+>
+> `-ms-grid-row-span`
+>
+> `-ms-grid-column-span`
+
+이 속성들은 Grid **아이템**에 적용하는 속성으로, 각 셀의 영역을 지정한다.
+아래 그림을 보면,
+
+![image-20210614223736618](CSS_Flex_Grid.assets/image-20210614223736618.png)
+
+1부터 4까지의 **Grid 라인 번호**가 매겨져 있는데, 바로 그 번호를 이용해서 column과 row의 범위를 결정
+column으로 살펴보면, `grid-column-start`가 시작 번호, `grid-column-end`가 끝 번호다. `grid-column`은 start와 end 속성을 한번에 쓰는 축약형이다.
+위의 빨간색 영역을 코드로 쓰면 아래와 같다.
+
+```css
+.item:nth-child(1) {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+.item:nth-child(1) {
+    /* grid-column: 1;  이거는 자동 한칸 차지됨 1 / 2 */
+	grid-column: 1 / 3;
+	grid-row: 1 / 2;
+}
+```
+
+![image-20210614223752890](CSS_Flex_Grid.assets/image-20210614223752890.png)
+
+`시작번호 / 끝번호`를 지정하는 방법 외에, **몇 개의 셀을 차지하게 할 것인지**를 지정해줄 수도 있다.
+
+```css
+.item:nth-child(1) {
+	/* 1번 라인에서 2칸 */
+	grid-column: 1 / span 2;
+	/* 1번 라인에서 3칸 */
+	grid-row: 1 / span 3;
+}
+```
+
+![image-20210614223803748](CSS_Flex_Grid.assets/image-20210614223803748.png)
+
+`grid-auto-columns`는 `grid-template-columns`의 통제를 받지 않는 column들의 배치를 결정하는 규칙이라고 했는데요, 이` grid-column`을 이용해 ‘통제받지 않는’ column들을 만들 수 있다.
+
+```css
+.container {
+	grid-template-columns: 50px;
+	grid-auto-columns: 1fr 2fr;
+}
+.item:nth-child(1) { grid-column: 2; }
+.item:nth-child(2) { grid-column: 3; }
+.item:nth-child(3) { grid-column: 4; }
+.item:nth-child(4) { grid-column: 5; }
+.item:nth-child(5) { grid-column: 6; }
+.item:nth-child(6) { grid-column: 7; }
+/* end를 생략하면 그냥 한 칸임 */
+```
+
+이렇게 하면, **첫번째 column(G)**만 `grid-template-columns`의 통제를 받아 50px로 되고, 나머지 column들은 `grid-auto-columns`의 규칙에 따라 1:2의 비율이 반복된다.
+
+![image-20210614223820338](CSS_Flex_Grid.assets/image-20210614223820338.png)
+
+### 영역 이름으로 그리드 정의 `grid-template-areas`
+
+각 영역(Grid Area)에 이름을 붙이고, 그 이름을 이용해서 배치하는 방법이다.
+
+![image-20210614223832206](CSS_Flex_Grid.assets/image-20210614223832206.png)
+
+```css
+.container {
+	grid-template-areas:
+		"header header header"
+		"   a    main    b   "
+		"   .     .      .   "
+		"footer footer footer";
+}
+```
+
+위의 형태로 각자 차지하는 셀의 개수만큼 해당 위치에 이름을 써주면 된다.
+각 셀마다 *공백을 하나씩* 넣어서 구분해주면 된다.
+header는 첫번째 row에서 3개의 column을 차지하니 맨 위에 3번 쓴 것
+빈칸은 마침표 또는 “**none**”을 사용하면 되고, 마침표의 개수는 여러개를 써도 상관 없다.
+
+그럼 각 영역의 이름은 매칭 : **해당 아이템** 요소에 **grid-area** 속성으로 이름을 지정해주면 된다!(*따옴표 없이 적어야 된다*)
+
+```css
+.header { grid-area: header; }
+.sidebar-a { grid-area: a; }
+.main-content { grid-area: main; }
+.sidebar-b { grid-area: b; }
+.footer { grid-area: footer; }
+/* 이름 값에 따옴표가 없는 것에 주의하세요 */
+```
+
+- 예시
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid</title>
+	<link rel="stylesheet" href="default.css">
+	<style>
+	/* grid-auto-columns, grid-auto-rows */
+	.grid-container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		/* grid-template-rows: repeat(3, minmax(100px, auto)); */
+		grid-auto-rows: minmax(100px, auto);
+		gap: 1rem;
+	}
+	</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="grid-item">A</div>
+		<div class="grid-item">B</div>
+		<div class="grid-item">C</div>
+		<div class="grid-item">D</div>
+		<div class="grid-item">
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur expedita nemo illum saepe id aliquam. Nisi voluptates quis reprehenderit inventore ad, dicta velit officia alias ullam quisquam, quae beatae, distinctio voluptatibus eveniet dolores facere blanditiis iusto illum! Molestiae qui, facere odio, veritatis quo, aspernatur cum eveniet maxime totam sunt harum.
+		</div>
+		<div class="grid-item">F</div>
+		<div class="grid-item">G</div>
+		<div class="grid-item">H</div>
+		<div class="grid-item">I</div>
+		<div class="grid-item">F</div>
+		<div class="grid-item">G</div>
+		<div class="grid-item">H</div>
+		<div class="grid-item">I</div>
+	</div>
+</body>
+</html>
+```
+
+![image-20210615003312000](CSS_Flex_Grid.assets/image-20210615003312000.png)
+
+![image-20210615003330662](CSS_Flex_Grid.assets/image-20210615003330662.png)
+
+
+
+### 자동 배치 `grid-auto-flow`
+
+아이템이 자동 배치되는 흐름을 결정하는 속성
+
+```css
+.container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(25%, auto));
+	grid-template-rows: repeat(5, minmax(50px,auto));
+	grid-auto-flow: dense;
+}
+item:nth-child(2) { grid-column: auto / span 3; }
+item:nth-child(5) { grid-column: auto / span 3; }
+item:nth-child(7) { grid-column: auto / span 2; }
+```
+
+B, E, G는 각각 셀을 3개 또는 2개를 점유하도록 설정했는데, 그 때문에 셀에 들어갈 자리가 없어서 빈 셀들이 생겼다. Grid 배치의 기본 설정은 아이템이 **row**를 기준으로 순서대로 배치가 되다가 들어갈 자리가 없으면 그 칸은 비워두고 아래로 배치가 된다.
+`dense`는 기본적으로 빈 셀을 채우는 알고리즘이며, row와 column에 따라 기준이 달라진다.
+
+![image-20210614223852256](CSS_Flex_Grid.assets/image-20210614223852256.png)
+
+![image-20210614223902107](CSS_Flex_Grid.assets/image-20210614223902107.png)
+
+![image-20210614223914481](CSS_Flex_Grid.assets/image-20210614223914481.png)
+
+![image-20210614223922230](CSS_Flex_Grid.assets/image-20210614223922230.png)
+
+![image-20210614223933917](CSS_Flex_Grid.assets/image-20210614223933917.png)
+
+
+
+### 세로 방향 정렬 `align-items`
+
+아이템들을 세로(column축) 방향으로 정렬 컨테이너에 적용한다.
+
+```css
+.container {
+	align-items: stretch;
+	/* align-items: start; */
+	/* align-items: center; */
+	/* align-items: end; */
+}
+```
+
+![image-20210614224013559](CSS_Flex_Grid.assets/image-20210614224013559.png)
+
+![image-20210614224021482](CSS_Flex_Grid.assets/image-20210614224021482.png)
+
+![image-20210614224031769](CSS_Flex_Grid.assets/image-20210614224031769.png)
+
+![image-20210614224043418](CSS_Flex_Grid.assets/image-20210614224043418.png)
+
+### 가로 방향 정렬 `justify-items`
+
+아이템들을 가로(row축) 방향으로 정렬합니다. 컨테이너에 적용한다.
+
+```css
+.container {
+	justify-items: stretch;
+	/* justify-items: start; */
+	/* justify-items: center; */
+	/* justify-items: end; */
+}
+```
+
+![image-20210614224056040](CSS_Flex_Grid.assets/image-20210614224056040.png)
+
+![image-20210614224107719](CSS_Flex_Grid.assets/image-20210614224107719.png)
+
+![image-20210614224120174](CSS_Flex_Grid.assets/image-20210614224120174.png)
+
+![image-20210614224134535](CSS_Flex_Grid.assets/image-20210614224134535.png)
+
+### `place-items`
+
+**align-items와 justify-items**를 같이 쓸 수 있는 단축 속성
+align-items, justify-items의 순서로 작성하고, 하나의 값만 쓰면 두 속성 모두에 적용된다.
+
+```css
+.container {
+	place-items: center start;
+}
+```
+
+### 아이템 그룹 세로 정렬 `align-content`
+
+Grid 아이템들의 높이를 모두 합한 값이 Grid 컨테이너의 높이보다 작을 때 Grid 아이템들을 통째로 정렬한다.
+
+```css
+.container {
+	align-content: stretch;
+	/* align-content: start; */
+	/* align-content: center; */
+	/* align-content: end; */
+	/* align-content: space-between; */
+	/* align-content: space-around; */
+	/* align-content: space-evenly; */
+}
+```
+
+![image-20210614224159423](CSS_Flex_Grid.assets/image-20210614224159423.png)
+
+![image-20210614224208722](CSS_Flex_Grid.assets/image-20210614224208722.png)
+
+![image-20210614224214707](CSS_Flex_Grid.assets/image-20210614224214707.png)
+
+![image-20210614224232118](CSS_Flex_Grid.assets/image-20210614224232118.png)
+
+![image-20210614224241045](CSS_Flex_Grid.assets/image-20210614224241045.png)
+
+![image-20210614224255608](CSS_Flex_Grid.assets/image-20210614224255608.png)
+
+![image-20210614224305932](CSS_Flex_Grid.assets/image-20210614224305932.png)
+
+### 아이템 그룹 가로 정렬 `justify-content`
+
+Grid 아이템들의 너비를 모두 합한 값이 Grid 컨테이너의 너비보다 작을 때 Grid 아이템들을 통째로 정렬.
+
+```css
+.container {
+	justify-content: stretch;
+	/* justify-content: start; */
+	/* justify-content: center; */
+	/* justify-content: end; */
+	/* justify-content: space-between; */
+	/* justify-content: space-around; */
+	/* justify-content: space-evenly; */
+}
+```
+
+![image-20210614224329395](CSS_Flex_Grid.assets/image-20210614224329395.png)
+
+![image-20210614224336704](CSS_Flex_Grid.assets/image-20210614224336704.png)
+
+![image-20210614224343381](CSS_Flex_Grid.assets/image-20210614224343381.png)
+
+![image-20210614224352682](CSS_Flex_Grid.assets/image-20210614224352682.png)
+
+![image-20210614224359406](CSS_Flex_Grid.assets/image-20210614224359406.png)
+
+![image-20210614224407145](CSS_Flex_Grid.assets/image-20210614224407145.png)
+
+![image-20210614224414857](CSS_Flex_Grid.assets/image-20210614224414857.png)
+
+### `place-content`
+
+**align-content와 justify-content**를 같이 쓸 수 있는 단축 속성.
+align-content, justify-content의 순서로 작성하고, 하나의 값만 쓰면 두 속성 모두에 적용됨.
+
+```css
+.container {
+	place-content: space-between center;
+}
+```
+
+### 개별 아이템 세로 정렬 `align-self`
+
+### -ms-grid-row-align
+
+해당 아이템을 세로(column축) 방향으로 정렬. 아이템에 적용한다.
+
+```css
+.item {
+	align-self: stretch;
+	/* align-self: start; */
+	/* align-self: center; */
+	/* align-self: end; */
+}
+```
+
+![image-20210614224427233](CSS_Flex_Grid.assets/image-20210614224427233.png)
+
+![image-20210614224435497](CSS_Flex_Grid.assets/image-20210614224435497.png)
+
+![image-20210614224443058](CSS_Flex_Grid.assets/image-20210614224443058.png)
+
+![image-20210614224452862](CSS_Flex_Grid.assets/image-20210614224452862.png)
+
+### 개별 아이템 가로 정렬 `justify-self`
+
+### -ms-grid-column-align
+
+해당 아이템을 가로(row축) 방향으로 정렬. 아이템에 적용.
+
+```css
+.item {
+	justify-self: stretch;
+	/* justify-self: start; */
+	/* justify-self: center; */
+	/* justify-self: end; */
+}
+```
+
+![image-20210614224506646](CSS_Flex_Grid.assets/image-20210614224506646.png)
+
+![image-20210614224515047](CSS_Flex_Grid.assets/image-20210614224515047.png)
+
+![image-20210614224520759](CSS_Flex_Grid.assets/image-20210614224520759.png)
+
+![image-20210614224532944](CSS_Flex_Grid.assets/image-20210614224532944.png)
+
+### `place-self`
+
+**align-self와 justify-self**를 같이 쓸 수 있는 단축 속성.
+align-self, justify-self의 순서로 작성하고, 하나의 값만 쓰면 두 속성 모두에 적용된다.
+
+```css
+.item {
+	place-self: start center;
+}
+```
+
+> html 태그에 `<html dir="rtl">`이렇게 설정하면 right to left 방향으로 설정됨
+
+### 배치 순서 `order`
+
+각 아이템들의 시각적 나열 순서를 결정하는 속성
+숫자값이 들어가며, 작은 숫자일 수록 먼저 배치된다. "**시각적**" 순서일 뿐, HTML 자체의 구조를 바꾸는 것은 아니므로 접근성 측면에서 사용에 주의한다. 
+
+```css
+.item:nth-child(1) { order: 3; } /* A */
+.item:nth-child(2) { order: 1; } /* B */
+.item:nth-child(3) { order: 2; } /* C */
+```
+
+![image-20210614224550124](CSS_Flex_Grid.assets/image-20210614224550124.png)
+
+### `z-index`
+
+z-index로 Z축 정렬을 할 수 있다. 숫자가 클 수록 위로 올라온다.
+(position에서의 z-index랑 똑같이 생각하시면 된다.)
+
+```css
+.item:nth-child(5) {
+	z-index: 1;
+	transform: scale(2);
+}
+/* z-index를 설정 안하면 0이므로, 1만 설정해도 나머지 아이템을 보다 위로 올라온다 */
+```
+
+![image-20210614224601166](CSS_Flex_Grid.assets/image-20210614224601166.png)
+
+### 끝으로, IE(인터넷 익스플로러) 10, 11에서 사용할 수 있는 Grid 속성.
+한계는 있지만, 적절히 사용하면 충분히 상용 서비스에도 적용할 수 있다!
+[IE에서 지원하는 고인물 스펙 참고](https://www.w3.org/TR/2011/WD-css3-grid-layout-20110407/)
+
+| 표준                                     | IE                      |
+| ---------------------------------------- | ----------------------- |
+| display: grid;                           | display: -ms-grid;      |
+| grid-template-rows                       | -ms-grid-rows           |
+| grid-template-columns                    | -ms-grid-columns        |
+| grid-row-start                           | -ms-grid-row            |
+| grid-column-start                        | -ms-grid-column         |
+| grid-row: 1 / span 2;에서 span 2 대신    | -ms-grid-row-span: 2    |
+| grid-column: 1 / span 2;에서 span 2 대신 | -ms-grid-column-span: 2 |
+| align-self                               | -ms-grid-row-align      |
+| justify-self                             | -ms-grid-column-align   |

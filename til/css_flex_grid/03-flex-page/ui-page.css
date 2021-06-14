@@ -5,17 +5,23 @@
 	height: 80px;
 	padding: 0 1rem;
 }
-/* .header에 justify-content: space-between; 대신 사용 가능 */
+/* search-form 크기에 맞게 search의 input의 크기가 바뀜 */
 .search-form {
 	width: 300px;
+	/* 크기를 제한시킴 */
 	max-width: 60%;
+/* .header에 justify-content: space-between; 대신 사용 가능 */
+/* 왼쪽을 다 씀 */
 	margin-left: auto;
+	/* 깃발모양이 들어올 것이기 때문에 공간을 줌 */
 	margin-right: 3rem;
 }
 .primary {
+	/* 헤더랑 맞춰서 1rem으로 해줌 */
 	padding: 1rem;
 }
 .secondary {
+	/* 헤더랑 맞춰서 1rem으로 해줌 */
 	padding: 1rem;
 }
 .secondary-a {
@@ -26,18 +32,29 @@
 	background: #666;
 }
 .footer {
+	/* 헤더랑 맞춰서 1rem으로 해줌 */
 	padding: 1rem;
 	border-top: 1px solid lightgray;
 	text-align: center;
 }
+/* modal 클릭 했을 때만 보이게 CSS로 처리 */
 .modal {
 	display: none;
+	/* 모달이 헤더를 가리지 않게 위치를 맞게 해줌 */
 	top: 80px;
 }
+/* 
+"~" : modal-switch input이 체크된 상태에 다음에 나오는 형제(같은 레벨)의 밑에 있는 클래스가 modal인 것 모두 적용됨
+
+"+" : 체크된 상태의 같은레벨의 바로 아래 클래스가 modal인 것 1개만 적용
+*/
 #modal-switch:checked ~ .modal {
 	display: flex;
 }
+/* label의 for이 "modal-switch"인 것 */
+/* 깃발모양을 위로 올리기 위해 absolute */
 label[for="modal-switch"] {
+	/* 버튼이니 inline-flex로 하면 더 일반적이다. */
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -50,39 +67,51 @@ label[for="modal-switch"] {
 	cursor: pointer;
 	/* background: red; */
 }
+/* label의 for이 "modal-switch"인 것 가상 엘리먼트 */
 label[for="modal-switch"]:before {
 	content: "⚑";
 	font-size: 2rem;
 	cursor: pointer;
 }
+/* 깃발이 체크 됐을 때 색으로 바꿔줌 */
 #modal-switch:checked ~ label[for="modal-switch"]:before {
 	color: dodgerblue;
 }
 #modal-switch,
 label[for="modal-switch"] span {
+	/* 스크린리더, SEO등의 이유로 display:none;이나 width:0;등의 사용을 피함 */
 	overflow: hidden;
 	position: absolute;
-	top: 0;
+	top: 0; /* 크롬에서는 모달이 하단에 위치하는 문제가 있어서 적어줘야됨! */
 	width: 1px;
 	height: 1px;
 	opacity: 0;
 }
 
+/* 반응형 */
+/* 최소 폭이 1024(ipad) */
 @media (min-width: 1024px) {
 	.page {
 		display: flex;
+		/* flex item이 컨테이너를 벗어나면 아래로 떨어짐 */
 		flex-wrap: wrap;
 	}
 	.header {
+		/* 한줄을 차지해야됨 */
 		width: 100%;
 	}
 	.menu {
+		/* 한줄을 차지해야됨 */
 		width: 100%;
 	}
+	/* flex-grow보다 width를 사용하는게 더 정확	*/
+	/* 양옆이 20%씩 2개라 primary는 60% */
 	.primary {
+		/* order가 작은게 더 먼저옴 */
 		order: 2;
 		width: 60%;
 	}
+	/* 양옆을 각각 20%로 해줌 */
 	.secondary {
 		width: 20%;
 	}
@@ -93,18 +122,25 @@ label[for="modal-switch"] span {
 		order: 3;
 	}
 	.footer {
+		/* 헤더나 menu는 어차피 앞에 있는 것들이라 따로 order를 안줘도 되고, footer도 flex-item이기 떄문에 order를 위에는 다 줬는데 이건 안주면 order:0;이기 때문에 가장 크게 order를 줘야 제일 뒷순서가 된다. */
 		order: 4;
+		/* 한줄을 차지해야됨 */
 		width: 100%;
 	}
 }
 
 @media (min-width: 1400px) {
 	.primary {
+		/* 양쪽 600px이니까 전체에서 600px만큼 빼줌 "꼭 띄어쓰기를 해야 적용된다" */
+		/* 1번 방법 */
 		width: calc(100% - 600px);
+		/* width말고도 아래의 방법도 있다. 근데 width를 쓴것 보다 확실하게 적용되지 않는다. 칼럼은 보통 픽스된 정해진 레이아웃이 있으면 width를 쓰는 것이 더 안전하다 */
+		/* 2번 방법 */
 		/* flex-grow: 1; */
 		/* flex: 1 1 auto; */
 		/* flex: auto; */
 	}
+	/* 일정 크기가 지나면 300px로 고정 */
 	.secondary {
 		width: 300px;
 	}
