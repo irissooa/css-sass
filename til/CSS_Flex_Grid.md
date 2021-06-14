@@ -676,3 +676,256 @@ z-index로 Z축 정렬을 할 수 있다. 숫자가 클 수록 위로 올라온�
 ```
 
 ![image-20210610232820321](CSS_Flex_Grid.assets/image-20210610232820321.png)
+
+### Flex UI 메뉴
+
+> ![image-20210614190440458](CSS_Flex_Grid.assets/image-20210614190440458.png)
+
+- `menu.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+	<ul class="menu">
+		<li class="menu-item">
+			<a href="#" class="menu-link">Home</a>
+		</li>
+		<li class="menu-item">
+			<a href="#" class="menu-link">About</a>
+		</li>
+		<li class="menu-item">
+			<a href="#" class="menu-link">Product</a>
+		</li>
+		<li class="menu-item">
+			<a href="#" class="menu-link">Contact</a>
+		</li>
+	</ul>
+</body>
+</html>
+```
+
+- `ui.css`
+
+```css
+/* menu */
+.menu {
+	display: flex;
+}
+.menu-item {
+	/* flex-grow: 1; */ /* width로 하는게 좋다. 왜냐면 IE에서는 flex-grow에 애니메이션 처리가 안먹는다. */
+	width: 25%;
+	background: gold;
+	transition: 0.5s; /* 애니메이션 */
+}
+.menu-item:hover {
+	/* flex-grow: 1.5; */
+	width: 35%;
+	background: crimson;
+}
+.menu-link {
+	/* a 태그는 인라인이기 때문에 block으로 바꿔 해당 칸 모두 어디든 클릭 할 수 있게 만듦 */
+	display: block; 
+	padding: 1em; /* 현재 내 폰트사이즈만큼(1.2rem) 패딩을 준단 말  */
+	font-size: 1.2rem; /* html 폰트사이즈의 1.2배 */
+	font-weight: bold;
+	color: #555;
+	text-decoration: none; /* 밑줄 없앰 */
+	text-align: center;
+}
+.menu-link:hover {
+	color: white;
+}
+
+```
+
+
+
+### Flex UI 유연한 검색창
+
+> ![image-20210614191122083](CSS_Flex_Grid.assets/image-20210614191122083.png)
+
+- `search.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+	<form class="search-form">
+		<input type="search">
+		<input type="submit" value="찾기">
+	</form>
+</body>
+</html>
+```
+
+- `ui.css`
+
+```css
+/* search */
+.search-form {
+	display: flex;
+	height: 40px;
+}
+.search-form input[type="search"] {
+	flex: 1; /* 창의 크기에 따라 늘어날 수 있게 지정 */
+	min-width: 0;
+	margin-right: 10px;
+	border: 0;
+	border-radius: 0.3em;
+	font-size: 1rem;
+}
+.search-form input[type="submit"] {
+	width: 4em;
+	border: 0;
+	border-radius: 0.3em;
+	font-size: 1rem;
+	background: gold;
+}
+```
+
+
+
+### Flex UI 불릿 리스트
+
+> ![image-20210614191852728](CSS_Flex_Grid.assets/image-20210614191852728.png)
+>
+> [copychar.cc](https://copychar.cc/)에서 bullet 이미지 가져오기
+
+- `bullet.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+	<ul class="info-list">
+		<li class="info-list-item">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugit numquam aspernatur excepturi, eos soluta praesentium maiores commodi minus accusantium?
+		</li>
+		<li class="info-list-item">
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam tempora nisi unde corrupti dicta.
+		</li>
+		<li class="info-list-item">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur alias, ducimus ea magnam nostrum repudiandae repellendus deleniti veniam? Assumenda expedita ad eum nihil!
+		</li>
+	</ul>
+</body>
+</html>
+```
+
+- `ui.css`
+
+```css
+/* bullet list */
+.info-list {
+	margin-bottom: 2rem;
+}
+.info-list-item {
+	display: flex;
+	margin: 0.5em 0;
+}
+/* 가상 element before 사용 */
+.info-list-item:before {
+	content: "⌘";
+	margin-right: 0.5em;
+}
+```
+
+
+
+### Flex UI 메시지 리스트
+
+> ![image-20210614192232324](CSS_Flex_Grid.assets/image-20210614192232324.png)
+
+- `message.html`
+
+> 프로필 이미지 `figure`태그의 `backgroud`이미지를 이용하면 어떤 크기의 프로필 사진이 들어오든 관리하기가 쉽다.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Flex</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+</head>
+<body>
+	<ul class="user-list message-list">
+		<li class="user-item message-item">
+			<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+			<p class="message-content">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione. Dicta, beatae, aspernatur, sit commodi quis illo non aut repellendus veritatis at ab.
+			</p>
+		</li>
+		<li class="user-item message-item">
+			<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+			<p class="message-content">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione.
+			</p>
+		</li>
+		<li class="user-item message-item">
+			<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+			<p class="message-content">
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id.
+			</p>
+		</li>
+	</ul>
+</body>
+</html>
+```
+
+- `ui.css`
+
+```css
+/* message */
+.user-list {
+	margin-bottom: 2rem;
+}
+.user-item {
+	display: flex;
+	margin-bottom: 1.5em; /* em은 폰트사이즈에 따라 달라지고, rem은 root(html)의 폰트사이즈에 따라 달라짐 */
+}
+.user-photo {
+	/* 메세지가 아무리 길더라도 프로필 사진이 안찌그러지게 함 
+	flex-shrink로 강제로 안 줄어들게 하려면 0으로 설정
+	*/
+	flex-shrink: 0;
+	width: 50px;
+	height: 50px;
+	margin-right: 0.5em;
+	border: 2px solid #333;
+	border-radius: 50%; /* 원모양의 border */
+	background-color: gold;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 150%; /* 원 안에 다 들어가야 되기 때문에 크기를 키워줌 */
+}
+```
+
