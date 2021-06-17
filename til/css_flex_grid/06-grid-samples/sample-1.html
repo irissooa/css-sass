@@ -70,6 +70,7 @@
 			color: white;
 			background: black;
 		}
+		/* category가 체크됐을 때 cate-music 클래스가 3~4 row */
 		#radio-sort-category:checked ~ .cate-music {
 			grid-row: 3/4;
 		}
@@ -88,6 +89,7 @@
 	<article class="grid-container">
 		<input type="radio" name="sort-control" value="default" id="radio-sort-default">
 		<label class="sort-label" for="radio-sort-default">Default</label>
+		<!-- radio 이용해 js를 쓰지 않고 css로 카테고리 분류 시킴 -->
 		<input type="radio" name="sort-control" value="category" id="radio-sort-category">
 		<label class="sort-label" for="radio-sort-category">Category</label>
 

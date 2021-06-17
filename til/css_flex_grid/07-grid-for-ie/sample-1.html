@@ -7,12 +7,16 @@
 	<title>CSS Grid</title>
 	<link rel="stylesheet" href="default.css">
 	<style>
+		/* ie는  grid-template-areas 이 기능을 지원하지 않음, ie는 자동으로 자리배치 안되고 하나하나 다 자리배치 해줘야됨 */
 	/* grid-template-areas */
 	.grid-container {
+		/* grid 앞에 -ms를 붙여야 됨 */
 		display: -ms-grid;
+		/* 크롬에서는 이게 적용됨 그래서 같이 적어주면 됨 */
 		display: grid;
 		-ms-grid-columns: 1fr 3fr 1fr;
 		grid-template-columns: 1fr 3fr 1fr;
+		/* gap도 ie에 지원안됨 */
 		/* gap: 1rem; */
 	}
 	.header {
@@ -21,6 +25,7 @@
 		grid-column: 2 / span 2;
 		-ms-grid-row: 1;
 		grid-row: 1;
+		/* ie에서는 gap이 안먹어 margin을 줌 */
 		margin: 0 0 1rem 1rem;
 	}
 	.sidebar-a {

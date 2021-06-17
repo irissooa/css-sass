@@ -7,6 +7,7 @@
 	<title>Board Game</title>
 	<link rel="stylesheet" href="default.css">
 	<style>
+		/* 애니메이션 처음 시작할 때 보드를 돌리는 애니메이션 */
 		@keyframes starting {
 			from {
 				transform: rotateX(0deg) rotateZ(0deg);
@@ -15,8 +16,10 @@
 				transform: rotateX(60deg) rotateZ(240deg);
 			}
 		}
+		/* 일분이가 통통튀는 애니메이션 */
 		@keyframes dongdong {
 			from {
+				/* 판이 회전돼서 Z를 움직여야 일분이가 뛰고 있다 */
 				transform: translateZ(30px) rotateX(-90deg) scaleY(0.7);
 			}
 			to {
@@ -33,10 +36,14 @@
 		}
 		.game {
 			display: grid;
+			/* vmin은 브라우저 폭이든 높이든 작은 수치를 잡아서 작은것의 11%
+			vmax는 브라우저 폭이든 높이든 큰것의 수치중 x%
+			*/
 			grid-template-rows: repeat(6, 11vmin);
 			grid-template-columns: repeat(6, 11vmin);
 			gap: 1vw;
 			transform: rotateX(0deg) rotateZ(0deg);
+			/* css 3D 효과를 날 수 있게, 회전을 했을 때 3D효과가 남 */
 			transform-style: preserve-3d;
 			animation: starting 2s 0.5s forwards;
 		}
@@ -70,6 +77,7 @@
 			color: white;
 			background: crimson;
 		}
+		/* tile이 체크되면 가상 element before를 이용해 일분이가 통통 뛰게 함 */
 		.tile input:checked + label:before {
 			content: '';
 			position: absolute;
@@ -81,6 +89,7 @@
 			border-radius: 50%;
 			animation: dongdong 0.22s infinite alternate;
 		}
+		/* 타일 하나하나 grid위치를 지정해줌 */
 		.tile:nth-child(1) { grid-row: 1; grid-column: 1; transform: rotate(135deg); border-radius: 50%; }
 		.tile:nth-child(2) { grid-row: 1; transform: rotate(180deg); }
 		.tile:nth-child(3) { grid-row: 1; transform: rotate(180deg); }

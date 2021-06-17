@@ -12,16 +12,21 @@
 			font-family: Roboto, sans-serif;
 			font-weight: 900;
 			color: #222;
+			/* 레고이미지를 background로 넣는게 나중에 반응형으로 바꿀때 더 유연하게 변할 수있다 */
 			background: url(images/lego.png) no-repeat white;
+			/* 창사이즈에 비례해서 움직여야 되니까 50%는 중간 가운데보다 오른쪽으로 1/4정도 옆으로 옮김 */
 			background-position: calc(50% + 22vw) 0;
+			/* 300px + 를 하면 최소한 300px을 넘을거기 때문에 300px이상 작아지지 않는다 */
 			background-size: calc(300px + 40vw) auto;
 		}
 		.page {
 			display: grid;
+			/* 3개로 잘라놨으니 3번반복 1:1:1 */
 			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: repeat(3, 1fr);
 			height: 100vh;
 		}
+		/* logo-container가 grid-item */
 		.logo-container {
 			grid-column: 1;
 			grid-row: 1;
@@ -33,29 +38,40 @@
 			border: 20px solid #222;
 		}
 		.message {
+			/* 1~3(4칸)을 차지하고 가운데 정렬, grid는 겹쳐도 되는데 밀리지 않게 정확하게 위치시켜줘야됨 */
 			grid-column: 1 / 3;
 			grid-row: 1 / 3;
+			/* message 자기만 가운데 정렬 */
 			justify-self: center;
 			align-self: center;
 			/* font-size: 3rem; */
 			/* font-size: 3.5vw; */
+			/* 20px보다 작아지지 않고 vw의 2.5배 */
 			font-size: calc(20px + 2.5vw);
 			text-align: center;
 		}
 		.footer {
 			/* grid-column: 1 / 3; */
+			/* 1에서 2칸 */
 			grid-column: 1 / span 2;
+			/* 3 / 4 */
 			grid-row: 3;
+			/* 자기자신만 밑에 */
 			align-self: end;
 			padding: 30px;
 		}
-
+		/* 반응형(모바일) */
+		/* orientation : portrait은 세로모드
+			landscape는 가로모드
+		*/
 		@media (orientation: portrait) {
 			body {
+				/* 100%를 하면 바닥으로 붙이는 것 */
 				background-position: calc(50% + 27vw) 100%;
 				background-size: calc(450px + 40vw) auto;
 			}
 			.page {
+				/* 비율 row 4개로 바꿈 */
 				grid-template-rows: repeat(4, 1fr);
 			}
 			.logo {
@@ -63,10 +79,12 @@
 				height: 35px;
 				border-width: 15px;
 			}
+			/* font-size를 vw로 하면 브라우저 창크기에 따라 잘 바뀐다 */
 			/* .message {
 				font-size: 1.5rem;
 			} */
 			.footer {
+				/* row도 바꿈 */
 				grid-row: 4;
 				font-size: 0.8rem;
 			}

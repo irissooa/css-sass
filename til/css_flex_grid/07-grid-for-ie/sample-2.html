@@ -7,12 +7,16 @@
 	<title>CSS Grid</title>
 	<link rel="stylesheet" href="default.css">
 	<style>
+		/* grid에 repeat도 안됨 */
 	.grid-container {
 		display: -ms-grid;
 		display: grid;
+		/* 1fr 1fr 1fr 해도 겹쳐있음 따로 줘야된다 */
+		/* 반복할 구문 만들고 [반복횟수]를 적어주면 repeat함수와 같이 사용됨 */
 		-ms-grid-columns: (1fr)[3];
 		grid-template-columns: repeat(3, 1fr);
 	}
+	/* 자동으로 배치가 안돼서 하나하나하나 위치를 지정해줘야됨 */
 	.grid-item:nth-child(1) {
 		-ms-grid-column: 1;
 		grid-column: 1;

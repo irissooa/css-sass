@@ -113,7 +113,11 @@
 /* card list */
 .card-list {
 	display: grid;
+	/* auto-fill을 이용해 채우기, minmax 최소 220px, 넘으면 넘김 */
 	grid-template-columns: repeat(auto-fill, minmax(220px, auto));
+	/* 높이의 경우 무한정 늘어날 수 있기 때문에
+컨테이너의 폭에 따라 카드 리스트의 높이가 넘칠 수 있어서,
+이 경우에는 column-gap만 주는 것이 더 바람직 */
 	column-gap: 2%;
 }
 .card-item {
@@ -122,6 +126,7 @@
 }
 .card-image {
 	height: 0;
+	/* padding을 이용해 300px의 60% 인 180px로 높이를 줌 */
 	padding-bottom: 60%;
 	background-repeat: no-repeat;
 	background-position: center;

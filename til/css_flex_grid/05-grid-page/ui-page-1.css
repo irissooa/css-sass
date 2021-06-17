@@ -71,10 +71,13 @@ label[for="modal-switch"] span {
 @media (min-width: 1024px) {
 	.page {
 		display: grid;
+		/* 20% + 알아서 채우고 + 20% */
 		grid-template-columns: 20% 1fr 20%;
 	}
 	.header {
+		/* 1~4 column */
 		grid-column: 1 / 4;
+		/* grid-row:1; 이라고 적어도도미 */
 		grid-row: 1 / 2;
 	}
 	.menu {

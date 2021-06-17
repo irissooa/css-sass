@@ -2219,7 +2219,1214 @@ z-index로 Z축 정렬을 할 수 있다. 숫자가 클 수록 위로 올라온�
 
 ![image-20210614224601166](CSS_Flex_Grid.assets/image-20210614224601166.png)
 
+### Grid 반응형 페이지
+
+> Flex 카드 리스트를 Grid로 바꾸기
+>
+> ![image-20210615211040065](CSS_Flex_Grid.assets/image-20210615211040065.png)
+
+- `ui-page-1.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+	<link rel="stylesheet" href="ui-page-1.css">
+    <style>
+        .card-list {
+            
+        }
+    </style>
+</head>
+<body>
+	<input type="checkbox" id="modal-switch">
+	<label for="modal-switch">
+		<span>모달 열고 닫기</span>
+	</label>
+
+	<div class="page">
+		<header class="header">
+			<h1 class="website-title">1분코딩</h1>
+			<form class="search-form">
+				<input type="search">
+				<input type="submit" value="찾기">
+			</form>
+		</header>
+
+		<ul class="menu">
+			<li class="menu-item">
+				<a href="#" class="menu-link">Home</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">About</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Product</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Contact</a>
+			</li>
+		</ul>
+
+		<!-- <div class="content-container"> -->
+		<section class="primary">
+			<ul class="card-list">
+				<li class="card-item">
+					<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+						<img src="images/ilbuni.png" alt="일분이">
+					</figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum.
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<aside class="secondary secondary-a">
+			<ul class="info-list">
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugit numquam aspernatur excepturi, eos soluta praesentium maiores commodi minus accusantium?
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam tempora nisi unde corrupti dicta.
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur alias, ducimus ea magnam nostrum repudiandae repellendus deleniti veniam? Assumenda expedita ad eum nihil!
+				</li>
+			</ul>
+			<ul class="user-list friend-list">
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+			</ul>
+		</aside>
+
+		<aside class="secondary secondary-b">
+			<ul class="user-list message-list">
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione. Dicta, beatae, aspernatur, sit commodi quis illo non aut repellendus veritatis at ab.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id.
+					</p>
+				</li>
+			</ul>
+		</aside>
+		<!-- </div> -->
+
+		<footer class="footer">
+			Lorem ipsum dolor sit amet consectetur.
+		</footer>
+
+	</div>
+
+	<div class="modal">
+		<div class="dialog">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque exercitationem odio, modi laboriosam a perspiciatis est delectus quisquam obcaecati vel eos natus ipsam quasi reprehenderit nihil eligendi quam aliquid! Totam vitae quis, obcaecati quos, ut aut eveniet architecto sed harum ea deleniti itaque saepe unde nulla?
+		</div>
+	</div>
+</body>
+</html>
+
+```
+
+- `ui-page-1.css`
+
+```css
+.header	{
+	display: flex;
+	align-items: center;
+	/* justify-content: space-between; */
+	height: 80px;
+	padding: 0 1rem;
+}
+/* .header에 justify-content: space-between; 대신 사용 가능 */
+.search-form {
+	width: 300px;
+	max-width: 60%;
+	margin-left: auto;
+	margin-right: 3rem;
+}
+.primary {
+	padding: 1rem;
+}
+.secondary {
+	padding: 1rem;
+}
+.secondary-a {
+	background: white;
+}
+.secondary-b {
+	color: white;
+	background: #666;
+}
+.footer {
+	padding: 1rem;
+	border-top: 1px solid lightgray;
+	text-align: center;
+}
+.modal {
+	display: none;
+	top: 80px;
+}
+#modal-switch:checked ~ .modal {
+	display: flex;
+}
+label[for="modal-switch"] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 1.3rem;
+	right: 1rem;
+	/* z-index: 100; */
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	/* background: red; */
+}
+label[for="modal-switch"]:before {
+	content: "⚑";
+	font-size: 2rem;
+	cursor: pointer;
+}
+#modal-switch:checked ~ label[for="modal-switch"]:before {
+	color: dodgerblue;
+}
+#modal-switch,
+label[for="modal-switch"] span {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+@media (min-width: 1024px) {
+	.page {
+		display: grid;
+		/* 20% + 알아서 채우고 + 20% */
+		grid-template-columns: 20% 1fr 20%;
+	}
+	.header {
+		/* 1~4 column */
+		grid-column: 1 / 4;
+		/* grid-row:1; 이라고 적어도도미 */
+		grid-row: 1 / 2;
+	}
+	.menu {
+		grid-column: 1 / 4;
+		grid-row: 2 / 3;
+	}
+	.primary {
+		grid-column: 2 / 3;
+		grid-row: 3 / 4;
+	}
+	.secondary-a {
+		grid-column: 1 / 2;
+		grid-row: 3 / 4;
+	}
+	.secondary-b {
+		grid-column: 3 / 4;
+		grid-row: 3 / 4;
+	}
+	.footer {
+		grid-column: 1 / 4;
+		grid-row: 4 / 5;
+	}
+}
+@media (min-width: 1400px) {
+	.page {
+		grid-template-columns: 300px 1fr 300px;
+	}
+}
+```
+
+- 그리드 영역 이름 정하는 것으로 바꿔보기
+- `ui-page-2.html`
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui.css">
+	<link rel="stylesheet" href="ui-page-2.css">
+</head>
+<body>
+	<input type="checkbox" id="modal-switch">
+	<label for="modal-switch">
+		<span>모달 열고 닫기</span>
+	</label>
+	
+	<div class="page">
+		<header class="header">
+			<h1 class="website-title">1분코딩</h1>
+			<form class="search-form">
+				<input type="search">
+				<input type="submit" value="찾기">
+			</form>
+		</header>
+
+		<ul class="menu">
+			<li class="menu-item">
+				<a href="#" class="menu-link">Home</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">About</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Product</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Contact</a>
+			</li>
+		</ul>
+
+		<!-- <div class="content-container"> -->
+		<section class="primary">
+			<ul class="card-list">
+				<li class="card-item">
+					<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+						<img src="images/ilbuni.png" alt="일분이">
+					</figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum.
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<aside class="secondary secondary-a">
+			<ul class="info-list">
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugit numquam aspernatur excepturi, eos soluta praesentium maiores commodi minus accusantium?
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam tempora nisi unde corrupti dicta.
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur alias, ducimus ea magnam nostrum repudiandae repellendus deleniti veniam? Assumenda expedita ad eum nihil!
+				</li>
+			</ul>
+			<ul class="user-list friend-list">
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+			</ul>
+		</aside>
+
+		<aside class="secondary secondary-b">
+			<ul class="user-list message-list">
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione. Dicta, beatae, aspernatur, sit commodi quis illo non aut repellendus veritatis at ab.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id.
+					</p>
+				</li>
+			</ul>
+		</aside>
+		<!-- </div> -->
+
+		<footer class="footer">
+			Lorem ipsum dolor sit amet consectetur.
+		</footer>
+
+	</div>
+
+	<div class="modal">
+		<div class="dialog">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque exercitationem odio, modi laboriosam a perspiciatis est delectus quisquam obcaecati vel eos natus ipsam quasi reprehenderit nihil eligendi quam aliquid! Totam vitae quis, obcaecati quos, ut aut eveniet architecto sed harum ea deleniti itaque saepe unde nulla?
+		</div>
+	</div>
+</body>
+</html>
+```
+
+- `ui-page-2.css`
+
+```css
+.header	{
+	display: flex;
+	align-items: center;
+	/* justify-content: space-between; */
+	height: 80px;
+	padding: 0 1rem;
+}
+/* .header에 justify-content: space-between; 대신 사용 가능 */
+.search-form {
+	width: 300px;
+	max-width: 60%;
+	margin-left: auto;
+	margin-right: 3rem;
+}
+.primary {
+	padding: 1rem;
+}
+.secondary {
+	padding: 1rem;
+}
+.secondary-a {
+	background: white;
+}
+.secondary-b {
+	color: white;
+	background: #666;
+}
+.footer {
+	padding: 1rem;
+	border-top: 1px solid lightgray;
+	text-align: center;
+}
+.modal {
+	display: none;
+	top: 80px;
+}
+#modal-switch:checked ~ .modal {
+	display: flex;
+}
+label[for="modal-switch"] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 1.3rem;
+	right: 1rem;
+	/* z-index: 100; */
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	/* background: red; */
+}
+label[for="modal-switch"]:before {
+	content: "⚑";
+	font-size: 2rem;
+	cursor: pointer;
+}
+#modal-switch:checked ~ label[for="modal-switch"]:before {
+	color: dodgerblue;
+}
+#modal-switch,
+label[for="modal-switch"] span {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+@media (min-width: 1024px) {
+	.page {
+		display: grid;
+		grid-template-columns: 20% 1fr 20%;
+		grid-template-areas:
+			"  header    header    header   "
+			"   menu      menu      menu    "
+			"secondary-a primary secondary-b"
+			"  footer    footer    footer   ";
+	}
+	.header {
+		grid-area: header;
+	}
+	.menu {
+		grid-area: menu;
+	}
+	.primary {
+		grid-area: primary;
+	}
+	.secondary-a {
+		grid-area: secondary-a;
+	}
+	.secondary-b {
+		grid-area: secondary-b;
+	}
+	.footer {
+		grid-area: footer;
+	}
+}
+@media (min-width: 1400px) {
+	.page {
+		grid-template-columns: 300px 1fr 300px;
+	}
+}
+```
+
+- grid `repeat`, `auto-fill` 이용
+
+```css
+/* card list */
+.card-list {
+	display: grid;
+	/* auto-fill을 이용해 채우기, minmax 최소 220px, 넘으면 넘김 */
+	grid-template-columns: repeat(auto-fill, minmax(220px, auto));
+	/* 높이의 경우 무한정 늘어날 수 있기 때문에
+컨테이너의 폭에 따라 카드 리스트의 높이가 넘칠 수 있어서,
+이 경우에는 column-gap만 주는 것이 더 바람직 */
+	column-gap: 2%;
+}
+.card-item {
+	margin-bottom: 2rem;
+	background: white;
+}
+.card-image {
+	height: 0;
+	/* padding을 이용해 300px의 60% 인 180px로 높이를 줌 */
+	padding-bottom: 60%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: lightgray;
+	background-size: cover;
+}
+.card-image img {
+	display: none;
+}
+.card-desc {
+	padding: 1em;
+}
+
+```
+
+
+
+### CSS Grid 카테고리
+
+> ![image-20210615212334293](CSS_Flex_Grid.assets/image-20210615212334293.png)
+>
+> ![image-20210615212356381](CSS_Flex_Grid.assets/image-20210615212356381.png)
+
+- html
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="default.css">
+	<style>
+		html {
+			font-size: 87.5%; /* 14px */
+			font-family: Roboto, 'Noto Sans KR', sans-serif;
+			-moz-osx-font-smoothing: grayscale;
+			text-rendering: optimizeLegibility !important;
+		}
+		body {
+			background: lightgray;
+		}
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+		.grid-container {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			grid-gap: 1rem;
+			max-width: 1200px;
+			margin: 0 auto;
+		}
+		.page-header {
+			grid-column: 1/5;
+		}
+		.page-footer {
+			grid-column: 1/5;
+			padding: 1rem 0 3rem;
+			font-size: 0.8rem;
+		}
+		.site-title {
+			font-size: 10rem;
+			font-family: 'Roboto Condensed';
+		}
+		.cate-sect {
+			background: white;
+		}
+		.cate-name {
+			padding: 1rem;
+			font-weight: bold;
+			color: white;
+		}
+		.cate-music .cate-name { background: crimson; }
+		.cate-game .cate-name { background: limegreen; }
+		.cate-food .cate-name { background: salmon; }
+		.cate-tech .cate-name { background: steelblue; }
+		.cate-sect-cont {
+			padding: 1rem;
+		}
+		.cate-sect-title {
+			padding: 1rem;
+		}
+		input[name='sort-control'] {
+			position: absolute;
+			left: -1000rem;
+		}
+		.sort-label {
+			padding: 1rem;
+			cursor: pointer;
+		}
+		:checked + .sort-label {
+			color: white;
+			background: black;
+		}
+		/* category가 체크됐을 때 cate-music 클래스가 3~4 row */
+		#radio-sort-category:checked ~ .cate-music {
+			grid-row: 3/4;
+		}
+		#radio-sort-category:checked ~ .cate-food {
+			grid-row: 4/5;
+		}
+		#radio-sort-category:checked ~ .cate-game {
+			grid-row: 5/6;
+		}
+		#radio-sort-category:checked ~ .cate-tech {
+			grid-row: 6/7;
+		}
+	</style>
+</head>
+<body>
+	<article class="grid-container">
+		<input type="radio" name="sort-control" value="default" id="radio-sort-default">
+		<label class="sort-label" for="radio-sort-default">Default</label>
+		<!-- radio 이용해 js를 쓰지 않고 css로 카테고리 분류 시킴 -->
+		<input type="radio" name="sort-control" value="category" id="radio-sort-category">
+		<label class="sort-label" for="radio-sort-category">Category</label>
+
+		<header class="page-header">
+			<h1 class="site-title">CSS Grid Layout!</h1>
+		</header>
+
+		<section class="cate-sect cate-music">
+			<header class="cate-sect-header">
+				<div class="cate-name">Music</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-food">
+			<header class="cate-sect-header">
+				<div class="cate-name">Food</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-game">
+			<header class="cate-sect-header">
+				<div class="cate-name">Game</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-tech">
+			<header class="cate-sect-header">
+				<div class="cate-name">Tech</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-music">
+			<header class="cate-sect-header">
+				<div class="cate-name">Music</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-game">
+			<header class="cate-sect-header">
+				<div class="cate-name">Game</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-food">
+			<header class="cate-sect-header">
+				<div class="cate-name">Food</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-music">
+			<header class="cate-sect-header">
+				<div class="cate-name">Music</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-tech">
+			<header class="cate-sect-header">
+				<div class="cate-name">Tech</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-food">
+			<header class="cate-sect-header">
+				<div class="cate-name">Food</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-music">
+			<header class="cate-sect-header">
+				<div class="cate-name">Music</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-game">
+			<header class="cate-sect-header">
+				<div class="cate-name">Game</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-tech">
+			<header class="cate-sect-header">
+				<div class="cate-name">Tech</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-game">
+			<header class="cate-sect-header">
+				<div class="cate-name">Game</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-food">
+			<header class="cate-sect-header">
+				<div class="cate-name">Food</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<section class="cate-sect cate-tech">
+			<header class="cate-sect-header">
+				<div class="cate-name">Tech</div>
+				<h2 class="cate-sect-title">Lorem, ipsum.</h2>
+			</header>
+			<p class="cate-sect-cont">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa quaerat quisquam magni aperiam minima quam, dicta sequi. Vel, consectetur totam.</p>
+		</section>
+
+		<footer class="page-footer">
+			Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem, deserunt.
+		</footer>
+	</article>
+</body>
+</html>
+```
+
+
+
+### Grid Board Game
+
+> ![image-20210615212750861](CSS_Flex_Grid.assets/image-20210615212750861.png)
+>
+> css로 이렇게 돌다가
+>
+> ![image-20210615212813535](CSS_Flex_Grid.assets/image-20210615212813535.png)
+>
+> 1분위가 통통 튀는 애니메이션 CSS로 만들기
+>
+> ![image-20210615212836282](CSS_Flex_Grid.assets/image-20210615212836282.png)
+>
+> Grid로 만듦
+>
+> ![image-20210615213011053](CSS_Flex_Grid.assets/image-20210615213011053.png)
+
+- html
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Board Game</title>
+	<link rel="stylesheet" href="default.css">
+	<style>
+		/* 애니메이션 처음 시작할 때 보드를 돌리는 애니메이션 */
+		@keyframes starting {
+			from {
+				transform: rotateX(0deg) rotateZ(0deg);
+			}
+			to {
+				transform: rotateX(60deg) rotateZ(240deg);
+			}
+		}
+		/* 일분이가 통통튀는 애니메이션 */
+		@keyframes dongdong {
+			from {
+				/* 판이 회전돼서 Z를 움직여야 일분이가 뛰고 있다 */
+				transform: translateZ(30px) rotateX(-90deg) scaleY(0.7);
+			}
+			to {
+				transform: translateZ(60px) rotateX(-90deg);
+			}
+		}
+		body {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			perspective: 1000px;
+			color: black;
+			background: #fff000;
+		}
+		.game {
+			display: grid;
+			/* vmin은 브라우저 폭이든 높이든 작은 수치를 잡아서 작은것의 11%
+			vmax는 브라우저 폭이든 높이든 큰것의 수치중 x%
+			*/
+			grid-template-rows: repeat(6, 11vmin);
+			grid-template-columns: repeat(6, 11vmin);
+			gap: 1vw;
+			transform: rotateX(0deg) rotateZ(0deg);
+			/* css 3D 효과를 날 수 있게, 회전을 했을 때 3D효과가 남 */
+			transform-style: preserve-3d;
+			animation: starting 2s 0.5s forwards;
+		}
+		.tile {
+			/* overflow: hidden; */
+			/* overflow: hidden이 되어있으면 3D 효과 안됨 */
+			position: relative;
+			border: 3px solid black;
+			font-size: 2rem;
+			transform-style: preserve-3d;
+		}
+		.tile label {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			transform-style: preserve-3d;
+			cursor: pointer;
+		}
+		.tile label:hover {
+			color: white;
+			background: dodgerblue;
+		}
+		.tile input {
+			position: absolute;
+			opacity: 0;
+		}
+		.tile input:checked + label {
+			color: white;
+			background: crimson;
+		}
+		/* tile이 체크되면 가상 element before를 이용해 일분이가 통통 뛰게 함 */
+		.tile input:checked + label:before {
+			content: '';
+			position: absolute;
+			display: block;
+			width: 100px;
+			height: 100px;
+			background: url(images/ilbuni.png) no-repeat center;
+			background-size: contain;
+			border-radius: 50%;
+			animation: dongdong 0.22s infinite alternate;
+		}
+		/* 타일 하나하나 grid위치를 지정해줌 */
+		.tile:nth-child(1) { grid-row: 1; grid-column: 1; transform: rotate(135deg); border-radius: 50%; }
+		.tile:nth-child(2) { grid-row: 1; transform: rotate(180deg); }
+		.tile:nth-child(3) { grid-row: 1; transform: rotate(180deg); }
+		.tile:nth-child(4) { grid-row: 1; transform: rotate(180deg); }
+		.tile:nth-child(5) { grid-row: 1; transform: rotate(180deg); }
+		.tile:nth-child(6) { grid-row: 1; transform: rotate(225deg); border-radius: 50%; }
+		.tile:nth-child(7) { grid-row: 2; grid-column: 6; transform: rotate(270deg); }
+		.tile:nth-child(8) { grid-row: 3; grid-column: 6; transform: rotate(270deg); }
+		.tile:nth-child(9) { grid-row: 4; grid-column: 6; transform: rotate(270deg); }
+		.tile:nth-child(10) { grid-row: 5; grid-column: 6; transform: rotate(270deg); }
+		.tile:nth-child(11) { grid-row: 6; grid-column: 6; transform: rotate(315deg); border-radius: 50%; }
+		.tile:nth-child(12) { grid-row: 6; grid-column: 5; }
+		.tile:nth-child(13) { grid-row: 6; grid-column: 4; }
+		.tile:nth-child(14) { grid-row: 6; grid-column: 3; }
+		.tile:nth-child(15) { grid-row: 6; grid-column: 2; }
+		.tile:nth-child(16) { grid-row: 6; grid-column: 1; transform: rotate(45deg); border-radius: 50%; }
+		.tile:nth-child(17) { grid-row: 5; transform: rotate(90deg); }
+		.tile:nth-child(18) { grid-row: 4; transform: rotate(90deg); }
+		.tile:nth-child(19) { grid-row: 3; transform: rotate(90deg); }
+		.tile:nth-child(20) { grid-row: 2; transform: rotate(90deg); }
+
+		.tile:nth-child(1) label,
+		.tile:nth-child(6) label,
+		.tile:nth-child(11) label,
+		.tile:nth-child(16) label {
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="game">
+		<div class="tile">
+			<input type="radio" name="tile" id="tile1">
+			<label for="tile1">1</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile2">
+			<label for="tile2">2</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile3">
+			<label for="tile3">3</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile4">
+			<label for="tile4">4</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile5">
+			<label for="tile5">5</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile6">
+			<label for="tile6">6</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile7">
+			<label for="tile7">7</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile8">
+			<label for="tile8">8</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile9">
+			<label for="tile9">9</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile10">
+			<label for="tile10">10</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile11">
+			<label for="tile11">11</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile12">
+			<label for="tile12">12</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile13">
+			<label for="tile13">13</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile14">
+			<label for="tile14">14</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile15">
+			<label for="tile15">15</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile16">
+			<label for="tile16">16</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile17">
+			<label for="tile17">17</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile18">
+			<label for="tile18">18</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile19">
+			<label for="tile19">19</label>
+		</div>
+		<div class="tile">
+			<input type="radio" name="tile" id="tile20">
+			<label for="tile20">20</label>
+		</div>
+	</div>
+</body>
+</html>
+```
+
+
+
+### CSS Grid 기반 디자인을 코드로 옮김
+
+- 포토샵으로 그리드를 만들고, 그것을 코드로 옮김
+
+> ![image-20210615213611726](CSS_Flex_Grid.assets/image-20210615213611726.png)
+>
+> ![image-20210615213622120](CSS_Flex_Grid.assets/image-20210615213622120.png)
+
+- 포토샵으로 먼저 Grid를 디자인함
+  - column line과 row line 2번을 중심으로 글자를 위치시킴
+
+![image-20210615213937573](CSS_Flex_Grid.assets/image-20210615213937573.png)
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Grid!</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="default.css">
+	<style>
+		body {
+			font-family: Roboto, sans-serif;
+			font-weight: 900;
+			color: #222;
+			/* 레고이미지를 background로 넣는게 나중에 반응형으로 바꿀때 더 유연하게 변할 수있다 */
+			background: url(images/lego.png) no-repeat white;
+			/* 창사이즈에 비례해서 움직여야 되니까 50%는 중간 가운데보다 오른쪽으로 1/4정도 옆으로 옮김 */
+			background-position: calc(50% + 22vw) 0;
+			/* 300px + 를 하면 최소한 300px을 넘을거기 때문에 300px이상 작아지지 않는다 */
+			background-size: calc(300px + 40vw) auto;
+		}
+		.page {
+			display: grid;
+			/* 3개로 잘라놨으니 3번반복 1:1:1 */
+			grid-template-columns: repeat(3, 1fr);
+			grid-template-rows: repeat(3, 1fr);
+			height: 100vh;
+		}
+		/* logo-container가 grid-item */
+		.logo-container {
+			grid-column: 1;
+			grid-row: 1;
+			padding: 30px;
+		}
+		.logo {
+			width: 100px;
+			height: 50px;
+			border: 20px solid #222;
+		}
+		.message {
+			/* 1~3(4칸)을 차지하고 가운데 정렬, grid는 겹쳐도 되는데 밀리지 않게 정확하게 위치시켜줘야됨 */
+			grid-column: 1 / 3;
+			grid-row: 1 / 3;
+			/* message 자기만 가운데 정렬 */
+			justify-self: center;
+			align-self: center;
+			/* font-size: 3rem; */
+			/* font-size: 3.5vw; */
+			/* 20px보다 작아지지 않고 vw의 2.5배 */
+			font-size: calc(20px + 2.5vw);
+			text-align: center;
+		}
+		.footer {
+			/* grid-column: 1 / 3; */
+			/* 1에서 2칸 */
+			grid-column: 1 / span 2;
+			/* 3 / 4 */
+			grid-row: 3;
+			/* 자기자신만 밑에 */
+			align-self: end;
+			padding: 30px;
+		}
+		/* 반응형(모바일) */
+		/* orientation : portrait은 세로모드
+			landscape는 가로모드
+		*/
+		@media (orientation: portrait) {
+			body {
+				/* 100%를 하면 바닥으로 붙이는 것 */
+				background-position: calc(50% + 27vw) 100%;
+				background-size: calc(450px + 40vw) auto;
+			}
+			.page {
+				/* 비율 row 4개로 바꿈 */
+				grid-template-rows: repeat(4, 1fr);
+			}
+			.logo {
+				width: 70px;
+				height: 35px;
+				border-width: 15px;
+			}
+			/* font-size를 vw로 하면 브라우저 창크기에 따라 잘 바뀐다 */
+			/* .message {
+				font-size: 1.5rem;
+			} */
+			.footer {
+				/* row도 바꿈 */
+				grid-row: 4;
+				font-size: 0.8rem;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<div class="logo-container">
+			<div class="logo"></div>
+		</div>
+		<div class="message">
+			<p>Hello, CSS Grid!</p>
+		</div>
+		<footer class="footer">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+		</footer>
+	</div>
+</body>
+</html>
+```
+
+
+
 ### 끝으로, IE(인터넷 익스플로러) 10, 11에서 사용할 수 있는 Grid 속성.
+
 한계는 있지만, 적절히 사용하면 충분히 상용 서비스에도 적용할 수 있다!
 [IE에서 지원하는 고인물 스펙 참고](https://www.w3.org/TR/2011/WD-css3-grid-layout-20110407/)
 
@@ -2234,3 +3441,412 @@ z-index로 Z축 정렬을 할 수 있다. 숫자가 클 수록 위로 올라온�
 | grid-column: 1 / span 2;에서 span 2 대신 | -ms-grid-column-span: 2 |
 | align-self                               | -ms-grid-row-align      |
 | justify-self                             | -ms-grid-column-align   |
+
+- ie도 지원되게 바꿈
+
+> 자동으로 자리잡는게 안돼서 하나하나 자리잡게 해줘야되고, gap도 적용이 안돼서 margin으로 줌
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid</title>
+	<link rel="stylesheet" href="default.css">
+	<style>
+		/* ie는  grid-template-areas 이 기능을 지원하지 않음, ie는 자동으로 자리배치 안되고 하나하나 다 자리배치 해줘야됨 */
+	/* grid-template-areas */
+	.grid-container {
+		/* grid 앞에 -ms를 붙여야 됨 */
+		display: -ms-grid;
+		/* 크롬에서는 이게 적용됨 그래서 같이 적어주면 됨 */
+		display: grid;
+		-ms-grid-columns: 1fr 3fr 1fr;
+		grid-template-columns: 1fr 3fr 1fr;
+		/* gap도 ie에 지원안됨 */
+		/* gap: 1rem; */
+	}
+	.header {
+		-ms-grid-column: 2;
+		-ms-grid-column-span: 2;
+		grid-column: 2 / span 2;
+		-ms-grid-row: 1;
+		grid-row: 1;
+		/* ie에서는 gap이 안먹어 margin을 줌 */
+		margin: 0 0 1rem 1rem;
+	}
+	.sidebar-a {
+		-ms-grid-column: 1;
+		grid-column: 1;
+		-ms-grid-row: 2;
+		grid-row: 2;
+	}
+	.sidebar-b {
+		-ms-grid-column: 3;
+		grid-column: 3;
+		-ms-grid-row: 2;
+		grid-row: 2;
+	}
+	.main {
+		-ms-grid-column: 2;
+		grid-column: 2;
+		-ms-grid-row: 2;
+		grid-row: 2;
+		margin: 0 1rem;
+	}
+	.footer {
+		-ms-grid-column: 1;
+		-ms-grid-column-span: 3;
+		grid-column: 1 / span 3;
+		-ms-grid-row: 3;
+		grid-row: 3;
+		margin-top: 1rem;
+	}
+	</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="header grid-item">Header</div>
+		<div class="sidebar-a grid-item">Sidebar A</div>
+		<div class="sidebar-b grid-item">Sidebar B</div>
+		<div class="main grid-item">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem voluptatibus quam rerum facilis sit fuga asperiores totam dolor qui, animi blanditiis recusandae aperiam nemo inventore unde voluptatum officia eveniet at molestiae, exercitationem repudiandae nam eum. In dignissimos ipsam alias deserunt deleniti asperiores inventore nisi consequuntur, minus fuga placeat incidunt necessitatibus voluptatum nostrum tempore, dolorem facilis temporibus recusandae eum eligendi ullam. Itaque quos fugit porro sunt velit? Cumque quod accusantium excepturi earum temporibus vitae incidunt laboriosam magnam ipsa fugiat! Ad rem consectetur, nisi et possimus hic ullam fugit quibusdam molestiae ab quas itaque? Impedit aliquid dolorem ipsa ex quod animi inventore ab, asperiores distinctio nulla ducimus exercitationem accusantium debitis, incidunt cupiditate commodi! Quis modi architecto itaque sequi mollitia cupiditate accusamus fugit explicabo dolorum repellendus consequuntur labore culpa, magnam sunt at obcaecati quisquam exercitationem libero. Architecto officia expedita cupiditate possimus eveniet nemo quibusdam dolor? Commodi tempora accusamus doloremque nisi quasi suscipit non, deleniti veniam illum consectetur libero animi voluptate modi officiis. Nobis cum in soluta provident hic, ullam consequuntur officia ab ipsa quae nihil vitae sapiente est. Aliquam aut odit, facere porro voluptatibus voluptatum dolorum eveniet eius molestias similique, voluptate consequatur provident culpa perspiciatis fuga iusto alias. Dicta soluta ducimus debitis nulla.
+		</div>
+		<div class="footer grid-item">Footer</div>
+	</div>
+</body>
+</html>
+```
+
+- `repeat`함수
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid</title>
+	<link rel="stylesheet" href="default.css">
+	<style>
+		/* grid에 repeat도 안됨 */
+	.grid-container {
+		display: -ms-grid;
+		display: grid;
+		/* 1fr 1fr 1fr 해도 겹쳐있음 따로 줘야된다 */
+		/* 반복할 구문 만들고 [반복횟수]를 적어주면 repeat함수와 같이 사용됨 */
+		-ms-grid-columns: (1fr)[3];
+		grid-template-columns: repeat(3, 1fr);
+	}
+	/* 자동으로 배치가 안돼서 하나하나하나 위치를 지정해줘야됨 */
+	.grid-item:nth-child(1) {
+		-ms-grid-column: 1;
+		grid-column: 1;
+	}
+	.grid-item:nth-child(2) {
+		-ms-grid-column: 2;
+		grid-column: 2;
+	}
+	.grid-item:nth-child(3) {
+		-ms-grid-column: 3;
+		grid-column: 3;
+	}
+	</style>
+</head>
+<body>
+	<div class="grid-container">
+		<div class="grid-item">A</div>
+		<div class="grid-item">B</div>
+		<div class="grid-item">C</div>
+	</div>
+</body>
+</html>
+```
+
+- `ie`에 적용되는 카드리스트
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>CSS Grid</title>
+	<link rel="stylesheet" href="default.css">
+	<link rel="stylesheet" href="ui-ie.css">
+	<link rel="stylesheet" href="ui-page-ie.css">
+</head>
+<body>
+	<input type="checkbox" id="modal-switch">
+	<label for="modal-switch">
+		<span>모달 열고 닫기</span>
+	</label>
+	
+	<div class="page">
+		<header class="header">
+			<h1 class="website-title">1분코딩</h1>
+			<form class="search-form">
+				<input type="search">
+				<input type="submit" value="찾기">
+			</form>
+		</header>
+
+		<ul class="menu">
+			<li class="menu-item">
+				<a href="#" class="menu-link">Home</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">About</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Product</a>
+			</li>
+			<li class="menu-item">
+				<a href="#" class="menu-link">Contact</a>
+			</li>
+		</ul>
+
+		<!-- <div class="content-container"> -->
+		<section class="primary">
+			<ul class="card-list">
+				<li class="card-item">
+					<figure class="card-image" style="background-image: url(images/ilbuni.png)">
+						<img src="images/ilbuni.png" alt="일분이">
+					</figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum.
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+				<li class="card-item">
+					<figure class="card-image"></figure>
+					<div class="card-desc">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit libero in ratione dicta nihil corporis illo odio, voluptatem a nam!
+					</div>
+				</li>
+			</ul>
+		</section>
+
+		<aside class="secondary secondary-a">
+			<ul class="info-list">
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil fugit numquam aspernatur excepturi, eos soluta praesentium maiores commodi minus accusantium?
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam tempora nisi unde corrupti dicta.
+				</li>
+				<li class="info-list-item">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam consequatur alias, ducimus ea magnam nostrum repudiandae repellendus deleniti veniam? Assumenda expedita ad eum nihil!
+				</li>
+			</ul>
+			<ul class="user-list friend-list">
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+				<li class="user-item friend-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="user-name">
+						일분이 일분이 일분이 일분이 일분이 일분이 일분이 일분이
+					</p>
+				</li>
+			</ul>
+		</aside>
+
+		<aside class="secondary secondary-b">
+			<ul class="user-list message-list">
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione. Dicta, beatae, aspernatur, sit commodi quis illo non aut repellendus veritatis at ab.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id, dicta eveniet similique architecto et, exercitationem quaerat alias ratione.
+					</p>
+				</li>
+				<li class="user-item message-item">
+					<figure class="user-photo" style="background-image: url(images/ilbuni.png);"></figure>
+					<p class="message-content">
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure nobis, nisi numquam harum voluptates vel corrupti dolorem id.
+					</p>
+				</li>
+			</ul>
+		</aside>
+		<!-- </div> -->
+
+		<footer class="footer">
+			Lorem ipsum dolor sit amet consectetur.
+		</footer>
+
+	</div>
+
+	<div class="modal">
+		<div class="dialog">
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque exercitationem odio, modi laboriosam a perspiciatis est delectus quisquam obcaecati vel eos natus ipsam quasi reprehenderit nihil eligendi quam aliquid! Totam vitae quis, obcaecati quos, ut aut eveniet architecto sed harum ea deleniti itaque saepe unde nulla?
+		</div>
+	</div>
+</body>
+</html>
+```
+
+- `ui-page-ie.css`
+
+```css
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 80px;
+	padding: 0 1rem;
+}
+.search-form {
+	width: 300px;
+	max-width: 60%;
+	margin-right: 2.5rem;
+}
+.primary {
+	padding: 1rem;
+}
+.secondary {
+	padding: 1rem;
+}
+.secondary-a {
+	background: white;
+}
+.secondary-b {
+	color: white;
+	background: #666;
+}
+.footer {
+	padding: 1rem;
+	border-top: 1px solid lightgray;
+	text-align: center;
+}
+.modal {
+	display: none;
+	top: 80px;
+}
+#modal-switch,
+label[for="modal-switch"] > span {
+	position: absolute;
+	left: -9999px;
+}
+label[for="modal-switch"] {
+	position: absolute;
+	right: 1rem;
+	top: 1.3rem;
+}
+label[for="modal-switch"]:before {
+	content: '✉';
+	font-size: 2rem;
+	cursor: pointer;
+}
+#modal-switch:checked ~ .modal {
+	display: flex;
+}
+#modal-switch:checked ~ label[for="modal-switch"] {
+	color: dodgerblue;
+}
+
+@media (min-width: 1024px) {
+	.page {
+		display:-ms-grid;
+		display: grid;
+		-ms-grid-columns: 20% 1fr 20%;
+		grid-template-columns: 20% 1fr 20%;
+	}
+	.header {
+		-ms-grid-column: 1;
+		-ms-grid-column-span: 3;
+		grid-column: 1 / 4;
+		-ms-grid-row: 1;
+		grid-row: 1 / 2;
+	}
+	.menu {
+		-ms-grid-column: 1;
+		-ms-grid-column-span: 3;
+		grid-column: 1 / 4;
+		-ms-grid-row: 2;
+		grid-row: 2 / 3;
+	}
+	.primary {
+		-ms-grid-column: 2;
+		grid-column: 2 / 3;
+		-ms-grid-row: 3;
+		grid-row: 3 / 4;
+	}
+	.secondary-a {
+		-ms-grid-column: 1;
+		grid-column: 1 / 2;
+		-ms-grid-row: 3;
+		grid-row: 3 / 4;
+	}
+	.secondary-b {
+		-ms-grid-column: 3;
+		grid-column: 3 / 4;
+		-ms-grid-row: 3;
+		grid-row: 3 / 4;
+	}
+	.footer {
+		-ms-grid-column: 1;
+		-ms-grid-column-span: 3;
+		grid-column: 1 / 4;
+		-ms-grid-row: 4;
+		grid-row: 4 / 5;
+	}
+}
+@media (min-width: 1400px) {
+	.page {
+		-ms-grid-columns: 300px 1fr 300px;
+		grid-template-columns: 300px 1fr 300px;
+	}
+	.secondary {
+		width: 300px;
+	}
+}
+```
+
